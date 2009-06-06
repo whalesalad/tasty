@@ -53,6 +53,10 @@ body {
         width: 240px;
         float: right;
     }
+    
+    a:hover {
+        text-decoration: none;
+    }
 
 #footer {
     width: 800px;
@@ -72,18 +76,18 @@ body {
 
 /* /// Content/Post Style */
 
-#wrapper #content .post {
+#content .post {
     margin-bottom: 20px;
 }
 
-    #wrapper #content .post .postMeta {
+    #content .post .postMeta {
         background: url(/wp-content/themes/tasty/img/postMetaBg.png) 0 0 no-repeat;
         height: 50px;
         overflow: hidden;
         margin-bottom: 15px;
     }
     
-        #wrapper #content .post .postMeta .date {
+        #content .post .postMeta .date {
             float: left;
             background: #FFF url(/wp-content/themes/tasty/img/postDateBg.png) 0 0 no-repeat;
             padding: 5px 3px 3px 3px;
@@ -98,44 +102,53 @@ body {
             text-shadow: 0 -1px 0 #B40047;
         }
         
-            #wrapper #content .post .postMeta .date span.month {
+            #content .post .postMeta .date span.month {
                 display: block;
                 font-size: 0.9em;
             }
             
-            #wrapper #content .post .postMeta .date span.day {
+            #content .post .postMeta .date span.day {
                 font-size: 1.2em;
             }
         
-        #wrapper #content .post .postMeta h2,
-        #wrapper #content .post .postMeta small {
+        #content .post .postMeta h2,
+        #content .post .postMeta small {
             display: block;
             margin-left: 55px;
         }
         
-        #wrapper #content .postMeta h2 {
+        #content .postMeta h2 {
             font-size: 1.8em;
             line-height: 1.7em;
             text-shadow: 0 1px 0 #000;
         }
             
-            #wrapper #content .postMeta h2 a {
+            #content .postMeta h2 a {
                 color: #FFD0E1; /* XXX*color */
                 text-decoration: none;
                 text-transform: uppercase;
             }
         
-        #wrapper #content .postMeta small {
+        #content .postMeta small {
             font-size: 1.1em;
             line-height: 1.3em;
             color: #EEE;
             text-shadow: 0 1px 0 #000;
         }
         
-            #wrapper #content .postMeta small a {
+            #content .postMeta small a {
                 color: #EEE;
             }
             
-            #wrapper #content .postMeta small a:hover {
+            #content .postMeta small a:hover {
                 text-decoration: none;
             }
+    
+    #content .post .postContent p {
+        font: normal 1.2em/2em "Verdana", "Tahoma", sans-serif;
+        margin-bottom: 1em;
+    }
+
+#sidebar ul {
+    list-style-type: none;
+}
