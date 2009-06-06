@@ -12,6 +12,8 @@ Tags: fixed width, two columns, widgets
 
 body {
     background: #333;
+    font: 62.5% "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 15px 0 0 0;
 }
 
     #wrapper {
@@ -52,6 +54,22 @@ body {
         float: right;
     }
 
+#footer {
+    width: 800px;
+    margin: 15px auto 30px auto;
+    text-align: center;
+    font-size: 1.2em;
+    color: #555;
+}
+
+    #footer a {
+        color: #555;
+    }
+
+    #footer .amp {
+        font: italic 120% "Baskerville", "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+    }
+
 /* /// Content/Post Style */
 
 #wrapper #content .post {
@@ -67,15 +85,26 @@ body {
     
         #wrapper #content .post .postMeta .date {
             float: left;
-            background: #FFF;
-            margin: 7px 0 0 7px;
-            height: 35px;
-            width: 35px;
+            background: #FFF url(/wp-content/themes/tasty/img/postDateBg.png) 0 0 no-repeat;
+            padding: 5px 3px 3px 3px;
+            margin: 5px 0 0 5px;
+            height: 32px;
+            width: 33px;
             text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #FFF;
+            text-shadow: 0 -1px 0 #B40047;
         }
         
             #wrapper #content .post .postMeta .date span.month {
                 display: block;
+                font-size: 0.9em;
+            }
+            
+            #wrapper #content .post .postMeta .date span.day {
+                font-size: 1.2em;
             }
         
         #wrapper #content .post .postMeta h2,
@@ -83,3 +112,30 @@ body {
             display: block;
             margin-left: 55px;
         }
+        
+        #wrapper #content .postMeta h2 {
+            font-size: 1.8em;
+            line-height: 1.7em;
+            text-shadow: 0 1px 0 #000;
+        }
+            
+            #wrapper #content .postMeta h2 a {
+                color: #FFD0E1; /* XXX*color */
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+        
+        #wrapper #content .postMeta small {
+            font-size: 1.1em;
+            line-height: 1.3em;
+            color: #EEE;
+            text-shadow: 0 1px 0 #000;
+        }
+        
+            #wrapper #content .postMeta small a {
+                color: #EEE;
+            }
+            
+            #wrapper #content .postMeta small a:hover {
+                text-decoration: none;
+            }
