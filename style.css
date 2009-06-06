@@ -7,3 +7,79 @@ Author: Michael Whalen
 Author URI: http://whalesalad.com/
 Tags: fixed width, two columns, widgets
 */
+
+* { margin: 0; padding: 0; }
+
+body {
+    background: #333;
+}
+
+    #wrapper {
+        width: 820px;
+        margin: 0 auto;
+        background: url(/wp-content/themes/tasty/img/bg.png) top center repeat-y;
+    }
+
+    #wrapper .innerTop,
+    #wrapper .innerBottom {
+        width: 820px;
+        height: 30px;
+        display: block;
+        background: url(/wp-content/themes/tasty/img/bg_top.png) top center no-repeat;
+    }
+    
+    #wrapper .innerBottom {
+        background: #333 url(/wp-content/themes/tasty/img/bg_bottom.png) top center no-repeat;
+        clear: both;
+    }
+    
+    #wrapper #header {
+        background: #333 url(/wp-content/themes/tasty/img/header.png) 0 0 no-repeat;
+        width: 760px;
+        height: 170px;
+        margin: 0 auto 20px auto;
+    }
+    
+    #wrapper #content {
+        margin-left: 30px;
+        width: 500px;
+        float: left;
+    }
+    
+    #wrapper #sidebar {
+        margin-right: 30px;
+        width: 240px;
+        float: right;
+    }
+
+/* /// Content/Post Style */
+
+#wrapper #content .post {
+    margin-bottom: 20px;
+}
+
+    #wrapper #content .post .postMeta {
+        background: url(/wp-content/themes/tasty/img/postMetaBg.png) 0 0 no-repeat;
+        height: 50px;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+    
+        #wrapper #content .post .postMeta .date {
+            float: left;
+            background: #FFF;
+            margin: 7px 0 0 7px;
+            height: 35px;
+            width: 35px;
+            text-align: center;
+        }
+        
+            #wrapper #content .post .postMeta .date span.month {
+                display: block;
+            }
+        
+        #wrapper #content .post .postMeta h2,
+        #wrapper #content .post .postMeta small {
+            display: block;
+            margin-left: 55px;
+        }
