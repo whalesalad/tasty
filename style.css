@@ -148,7 +148,187 @@ body {
         font: normal 1.2em/2em "Verdana", "Tahoma", sans-serif;
         margin-bottom: 1em;
     }
+    
+    #content .commentsMeta {
+        color: #444;
+        background: url(/wp-content/themes/tasty/img/commentHeaderBg.png) 0 0 no-repeat;
+        height: 35px;
+        line-height: 35px;
+        overflow: hidden;
+        padding: 0 10px;
+        margin-bottom: 10px;
+    }
+    
+        #content .commentsMeta h3 {
+            font-size: 1.4em;
+            text-shadow: 0 1px 0 #FFF;
+        }
+    
+    #content ol.postComments {
+        list-style: none;
+    }
+    
+    #content ol.postComments li.comment {
+        background: url(/wp-content/themes/tasty/img/commentBgTop.png) 0 0 no-repeat;
+        padding-top: 4px;
+        margin-bottom: 10px;
+    }
+    
+        #content ol.postComments li.comment .commentBody {
+            border: 1px solid #DDD;
+            border-width: 0 1px;
+            padding: 6px 10px 10px 10px;
+            font: normal 1.1em/1.8em "Verdana", "Tahoma", sans-serif;
+        }
+        
+        #content ol.postComments li.comment .commentMeta {
+            height: 26px;
+            padding: 0 0 0 40px;
+            line-height: 26px;
+            overflow: hidden;
+            background: url(/wp-content/themes/tasty/img/commentBgBottom.png) 0 0 no-repeat;
+            font-size: 1.1em;
+            color: #666;
+        }
+        
+            #content ol.postComments li.comment .commentMeta a {
+                font-weight: bold;
+                color: #666;
+            }
+
+    div.commentRespond {
+        
+    }
+    
+    div.commentRespond h3 {
+        color: #666;
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 1.8em;
+        font-size: 1.6em;
+    }
+    
+    div.commentRespond fieldset {
+        border: none;
+    }
+    
+        div.commentRespond fieldset label {
+            color: #777;
+            font-size: 12px;
+            line-height: 18px;
+            display: block;
+            clear: left;
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        div.commentRespond fieldset label span.label {
+            position: absolute;
+            left: 7px;
+            line-height: 28px;
+            margin: 0;
+        }
+        
+        div.commentRespond fieldset label input {
+            padding: 3px;
+            width: 250px;
+        }
+        
+        div.commentRespond fieldset label textarea {
+            padding: 5px;
+            width: 490px;
+        }
+        
+        div.commentRespond fieldset label input,
+        div.commentRespond fieldset label textarea {
+            font: 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+#sidebar p,
+#sidebar a {
+    font: normal 1.1em/1.8em "Verdana", "Tahoma", sans-serif;
+}
 
 #sidebar ul {
     list-style-type: none;
 }
+
+    #sidebar ul li {
+        margin-bottom: 1em;
+    }
+    
+        #sidebar ul li ul li {
+            margin-bottom: 0;
+        }
+        
+    #sidebar ul li h2 {
+        color: #666;
+        font-weight: normal;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 1.8em;
+    }
+
+    #sidebar ul.socialButtons {
+
+    }
+    
+        #sidebar ul.socialButtons:after {
+            content: ".";
+            visibility: hidden;
+            height: 0;
+            display: block;
+            clear: both;
+        }
+    
+        #sidebar ul.socialButtons li.button {
+            float: left;
+            width: 50px;
+            height: 50px;
+            margin: 0 10px 10px 0;
+        }
+        
+        #sidebar ul.socialButtons li.button a {
+            display: block;
+            height: 50px;
+            width: 50px;
+            background-position: 0 0;
+            text-indent: -9999em;
+        }
+            
+            #sidebar ul.socialButtons li.button a:hover {
+                background-position: -50px 0;
+            }
+        
+        #sidebar ul.socialButtons li.button.rss a {
+            background-image: url(/wp-content/themes/tasty/img/social/rss.png);
+        }
+        
+        #sidebar ul.socialButtons li.button.email a {
+            background-image: url(/wp-content/themes/tasty/img/social/email.png);
+        }
+        
+        #sidebar ul.socialButtons li.button.youtube a {
+            background-image: url(/wp-content/themes/tasty/img/social/youtube.png);
+        }
+        
+        #sidebar ul.socialButtons li.button.twitter a {
+            background-image: url(/wp-content/themes/tasty/img/social/twitter.png);
+        }
+        
+        #sidebar ul.socialButtons li.button.facebook a {
+            background-image: url(/wp-content/themes/tasty/img/social/facebook.png);
+        }
+        
+        #sidebar ul.socialButtons li.button.myspace a {
+            background-image: url(/wp-content/themes/tasty/img/social/myspace.png);
+        }
+        
+        #sidebar ul.socialButtons li.button.flickr a {
+            background-image: url(/wp-content/themes/tasty/img/social/flickr.png);
+        }
+        
+        #sidebar ul.socialButtons li.button.delicious a {
+            background-image: url(/wp-content/themes/tasty/img/social/delicious.png);
+        }
