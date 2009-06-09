@@ -27,8 +27,9 @@
         <div class="innerTop"></div>
         <div id="header">
             <div class="search">
-                <input type="text" name="search" value="" id="search" />
-                <button type="submit" name="submit">Search</button>
+                <label class="span" for="searchInput">Search the site...</label>
+                <input type="text" name="search" value="" id="searchInput" />
+                <input type="image" name="submit" src="<?php bloginfo('stylesheet_directory'); ?>/img/searchButton.png" id="submitSearch" />
             </div>
         </div>
             

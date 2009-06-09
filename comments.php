@@ -7,17 +7,17 @@
 if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['SCRIPT_FILENAME']))
     die ('Please do not load this page directly. Thanks!'); ?>
 
-<?php if (post_password_required()) { ?>
+<?php if (!post_password_required()) { ?>
+    <div class="commentsMeta">
+        <h3><?php comments_number('No Responses', 'One Response', '% Responses' );?></h3>
+    </div>
+<?php } else { ?>
     <p class="nocomments">This post is password protected. Enter the password to view comments.</p>
 <?php return; } ?>
 
 <?php if (have_comments()) : ?>
-    <div class="commentsMeta">
-        <h3><?php comments_number('No Responses', 'One Response', '% Responses' );?></h3>
-    </div>
-
     <ol class="postComments">
-        <?php wp_list_comments('type=comment&callback=tastycomment'); ?>
+        <?php wp_list_comments('type=comment&callback=tasty_render_comment'); ?>
     </ol>
 <?php else : // this is displayed if there are no comments so far ?>
     <?php if ('open' == $post->comment_status) : ?>
@@ -38,7 +38,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
     <?php if (get_option('comment_registration') && !$user_ID): ?>
         <p>You must be <a href="<?php echo get_option('siteurl'); ?>/wp-login.php?redirect_to=<?php echo urlencode(get_permalink()); ?>">logged in</a> if you would like to post a comment.</p>
     <?php else : ?>
-        <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform">
+        <form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentForm" <?php if ($user_ID){ ?>class="loggedin"<?php } ?>>
         <fieldset class="type a">
         <?php if ($user_ID): ?>
             <p>You're logged in as <a href="<?php echo get_option('siteurl'); ?>/wp-admin/profile.php"><?php echo $user_identity; ?></a>. <a href="<?php echo wp_logout_url(get_permalink()); ?>" title="Log out of this account">Log out &raquo;</a></p>
@@ -57,11 +57,11 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
             </label>
         <?php endif; ?>
             <label>
-                <span class="label">Comment</span>
+                <span class="label">Your Comment</span>
                 <textarea name="comment" id="comment" cols="100%" rows="10" tabindex="4"></textarea>
             </label>
             <p>
-                <input name="submit" type="submit" id="submit" tabindex="5" value="Submit Comment" />
+                <input name="submit" type="submit" id="submitComment" tabindex="5" value="Submit Comment" />
                 <?php comment_id_fields(); ?>
             </p>
             <?php do_action('comment_form', $post->ID); ?>
