@@ -43,6 +43,24 @@ body {
         position: relative;
     }
     
+        #wrapper #header h1 {
+            color: #FFF;
+            font-size: 2.4em;
+            padding: 55px 0 5px 0;
+            margin: 0 0 0 50px;
+        }
+        
+            #wrapper #header h1 a {
+                color: #FFF;
+                text-decoration: none;
+            }
+        
+        #wrapper #header h2 {
+            font-weight: normal;
+            color: #FFF;
+            margin: 0 0 0 50px;
+        }
+    
         #wrapper #header .search {
             position: absolute;
             bottom: 0;
@@ -53,7 +71,7 @@ body {
         
             #wrapper #header .search label {
                 position: absolute;
-                top: 7px;
+                top: 8px;
                 left: 7px;
                 color: #999;
                 font-size: 1.2em;
@@ -76,15 +94,32 @@ body {
             }
     
     #wrapper #content {
-        margin-left: 30px;
         width: 500px;
-        float: left;
     }
     
     #wrapper #sidebar {
-        margin-right: 30px;
         width: 240px;
+        font: normal 1.1em/1.8em "Verdana", "Tahoma", sans-serif;
+    }
+    
+    body.left-sidebar #wrapper #content {
+        margin-right: 30px;
         float: right;
+    }
+    
+    body.right-sidebar #wrapper #content {
+        margin-left: 30px;
+        float: left;
+    }
+    
+    body.right-sidebar #wrapper #sidebar {
+        margin-right: 30px;
+        float: right;
+    }
+    
+    body.left-sidebar #wrapper #sidebar {
+        margin-left: 30px;
+        float: left;
     }
     
     a:hover {
@@ -108,6 +143,18 @@ body {
     }
 
 /* /// Content/Post Style */
+
+#content p a {
+    color: #FE005A;
+    text-decoration: none;
+    border-bottom: 1px dotted #FE005A;
+    padding: 0 1px;
+}
+
+    #content p a:hover {
+        border-bottom-style: solid;
+        background: #FAEBF0;
+    }
 
 #content .post {
     margin-bottom: 20px;
@@ -178,8 +225,15 @@ body {
             }
     
     #content p {
-        font: normal 1.2em/2em "Verdana", "Tahoma", sans-serif;
+        font: 1.2em/2em "Verdana", "Tahoma", sans-serif;
         margin-bottom: 1em;
+    }
+    
+    #content p.wp-caption-text {
+        text-align: center;
+        font-size: 1.1em;
+        font-style: italic;
+        color: #777;
     }
     
     #content .commentsMeta {
@@ -320,33 +374,42 @@ body {
             font: 1em "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
-#sidebar p,
-#sidebar a {
-    font: normal 1.1em/1.8em "Verdana", "Tahoma", sans-serif;
-}
-
 #sidebar ul {
     list-style-type: none;
 }
 
     #sidebar ul li {
-        margin-bottom: 1em;
+        margin-bottom: 1.5em;
     }
     
         #sidebar ul li ul li {
             margin-bottom: 0;
         }
-        
+    
     #sidebar ul li h2 {
         color: #666;
         font-weight: normal;
         text-transform: uppercase;
         letter-spacing: 1px;
         line-height: 1.8em;
+        font-size: 1.1em;
+        font-weight: bold;
     }
+    
+    #sidebar ul li a {
+        color: #FE337B;
+        text-decoration: none;
+        padding: 1px;
+    }
+    
+        #sidebar ul li a:hover {
+            color: #FE005A;
+            background: #FAEBF0;
+            text-decoration: underline;
+        }
 
     #sidebar ul.socialButtons {
-
+        margin: 0;
     }
     
         #sidebar ul.socialButtons:after {
@@ -370,6 +433,7 @@ body {
             width: 50px;
             background-position: 0 0;
             text-indent: -9999em;
+            padding: 0 !important;
         }
             
             #sidebar ul.socialButtons li.button a:hover {

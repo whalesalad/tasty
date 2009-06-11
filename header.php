@@ -13,6 +13,8 @@
 <title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
+<?php tasty_stylesheet_url(); ?>
+
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
@@ -22,10 +24,12 @@
 
 <?php wp_head(); ?>
 </head>
-<body>
+<body <?php tasty_body_class(); ?>>
     <div id="wrapper">
         <div class="innerTop"></div>
         <div id="header">
+            <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+            <h2><?php bloginfo('description'); ?></h2>
             <div class="search">
                 <label class="span" for="searchInput">Search the site...</label>
                 <input type="text" name="search" value="" id="searchInput" />
