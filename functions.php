@@ -5,35 +5,40 @@
  */
 
 
-function tasty_stylesheet_url() {
+function tasty_stylesheet_url(){
     $tasty_color_option = split('_', get_option('tasty_color'));
     $tasty_color = (isset($tasty_color_option[1])) ? $tasty_color_option[1] : 'pink';
     echo '<link rel="stylesheet" href="'.get_bloginfo('stylesheet_directory').'/css/'.$tasty_color.'.css" />';
 }
 
-function tasty_sidebar_alignment() {
+function tasty_sidebar_alignment(){
     $tasty_sidebar_alignment = get_option('tasty_sidebar_alignment');
     $tasty_sidebar_alignment = ($tasty_sidebar_alignment) ? $tasty_sidebar_alignment : 'right';
     return $tasty_sidebar_alignment.'-sidebar';
 }
 
-function tasty_sidebar($position) {
+function tasty_header(){
+    get_header();
+
     $alignment = tasty_sidebar_alignment();
-    if ($alignment == 'left-sidebar' && $position == 'top') {
-        get_sidebar();
-    } else if ($alignment == 'right-sidebar' && $position == 'bottom') {
-        get_sidebar();
-    }
+    if ($alignment == 'left-sidebar') get_sidebar();
 }
 
-function tasty_body_class() {
+function tasty_footer(){
+    $alignment = tasty_sidebar_alignment();
+    if ($alignment == 'right-sidebar') get_sidebar();
+    
+    get_footer();
+}
+
+function tasty_body_class(){
     $classes = array();
     $classes[$classes.length] = tasty_sidebar_alignment();
     
     echo 'class="'.join(' ', $classes).'"';
 }
 
-if (function_exists('register_sidebar')) {
+if (function_exists('register_sidebar')){
     register_sidebar(array(
         'before_widget' => '<li>',
         'after_widget' => '</li>',
@@ -69,11 +74,11 @@ function tasty_render_comment($comment, $args, $depth){
 add_action('admin_menu', 'tasty_add_options_pages');
 add_action('admin_post_tasty_save', 'tasty_save_options');
 
-function tasty_add_options_pages() {
+function tasty_add_options_pages(){
     add_theme_page(__('Tasty Theme Options', 'tasty'), __('Tasty Theme Options', 'tasty'), 'edit_themes', 'tasty-options', 'tasty_options_admin');
 }
 
-function tasty_options_admin() { 
+function tasty_options_admin(){ 
     add_option('tasty_color', 'tasty_pink', '', 'yes');
     add_option('tasty_sidebar_alignment', 'right', '', 'yes');
     
@@ -116,7 +121,7 @@ function tasty_options_admin() {
     </form>
 <?php } 
 
-function tasty_save_options() {
+function tasty_save_options(){
     if (!current_user_can('edit_themes'))
         wp_die(__('Sorry, you don\'t have sufficient admin privileges to modify theme settings.', 'tasty'));
 

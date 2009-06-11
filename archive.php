@@ -4,7 +4,7 @@
  * @subpackage Tasty
  */
 
-get_header(); ?>
+tasty_header(); ?>
 
     <div id="content" class="narrowcolumn">
 
@@ -71,4 +71,4 @@ get_header(); ?>
 
     </div>
 
-<?php get_sidebar(); get_footer(); ?>
+<?php tasty_footer(); ?>

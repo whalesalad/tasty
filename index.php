@@ -4,7 +4,7 @@
  * @subpackage Tasty
  */
 
-get_header(); tasty_sidebar('top'); ?>
+tasty_header(); ?>
 <div id="content">
     <?php if (have_posts()): ?>
         <?php while (have_posts()) : the_post(); ?>
@@ -29,4 +29,4 @@ get_header(); tasty_sidebar('top'); ?>
         <?php get_search_form(); ?>
     <?php endif; ?>
 </div>
-<?php tasty_sidebar('bottom'); get_footer(); ?>
+<?php tasty_footer(); ?>
