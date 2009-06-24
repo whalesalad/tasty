@@ -14,26 +14,26 @@ function tasty_stylesheet_url(){
 function tasty_sidebar_alignment(){
     $tasty_sidebar_alignment = get_option('tasty_sidebar_alignment');
     $tasty_sidebar_alignment = ($tasty_sidebar_alignment) ? $tasty_sidebar_alignment : 'right';
-    return $tasty_sidebar_alignment.'-sidebar';
+    return $tasty_sidebar_alignment;
 }
 
 function tasty_header(){
     get_header();
 
     $alignment = tasty_sidebar_alignment();
-    if ($alignment == 'left-sidebar') get_sidebar();
+    if ($alignment == 'left') get_sidebar();
 }
 
 function tasty_footer(){
     $alignment = tasty_sidebar_alignment();
-    if ($alignment == 'right-sidebar') get_sidebar();
+    if ($alignment == 'right') get_sidebar();
     
     get_footer();
 }
 
 function tasty_body_class(){
     $classes = array();
-    $classes[$classes.length] = tasty_sidebar_alignment();
+    $classes[$classes.length] = tasty_sidebar_alignment().'-sidebar';
     
     echo 'class="'.join(' ', $classes).'"';
 }

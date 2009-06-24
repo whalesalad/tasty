@@ -263,7 +263,7 @@ body {
     
         #content ol.postComments li.comment.comment-author-admin,
         #content ol.postComments li.comment.bypostauthor {
-            background: url(/wp-content/themes/tasty/img/commentAuthorBgTop.png) 0 0 no-repeat;            
+            background: url(/wp-content/themes/tasty/img/commentAuthorBgTop.png) 0 0 no-repeat;
         }
     
         #content ol.postComments li span.authorStar {

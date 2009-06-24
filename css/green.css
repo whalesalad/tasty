@@ -1,7 +1,5 @@
-/* 91CB0D */
-
 #wrapper #header {
-    background: #333 url(/wp-content/themes/tasty/img/header_green.png) 0 0 no-repeat;
+    background: #333 url(/wp-content/themes/tasty/img/green/header.png) 0 0 no-repeat;
 }
 
 #content p a {
@@ -16,9 +14,31 @@
     }
 
 #content .post .postMeta .date {
-    background: #FFF url(/wp-content/themes/tasty/img/postDateBg_green.png) 0 0 no-repeat;
+    background: #FFF url(/wp-content/themes/tasty/img/green/postDateBg.png) 0 0 no-repeat;
     text-shadow: 0 -1px 0 #529300;
 }
+
+#content ol.postComments li.comment.comment-author-admin,
+#content ol.postComments li.comment.bypostauthor {
+    background: url(/wp-content/themes/tasty/img/green/commentAuthorBgTop.png) 0 0 no-repeat;
+}
+
+#content ol.postComments li.comment.comment-author-admin .commentBody,
+#content ol.postComments li.comment.bypostauthor .commentBody {
+    border-color: #e5eecf;
+}
+
+#content ol.postComments li.comment.comment-author-admin .commentMeta,
+#content ol.postComments li.comment.bypostauthor .commentMeta {
+    color: #90b832;
+    background: url(/wp-content/themes/tasty/img/green/commentAuthorBgBottom.png) 0 0 no-repeat;
+}
+
+#content ol.postComments li.comment.comment-author-admin .commentMeta a,
+#content ol.postComments li.comment.bypostauthor .commentMeta a {
+    color: #90b832;
+}
+
 
 #content .postMeta h2 a {
     color: #E9F8C7;
