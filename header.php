@@ -3,6 +3,9 @@
  * @package WordPress
  * @subpackage Tasty
  */
+
+include('functions.php');
+
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
@@ -25,6 +28,7 @@
 <?php wp_head(); ?>
 </head>
 <body <?php tasty_body_class(); ?>>
+    <?php print_r($tasty_settings); ?>
     <div id="wrapper">
         <div class="innerTop"></div>
         <div id="header">

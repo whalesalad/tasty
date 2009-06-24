@@ -50,6 +50,10 @@ function tasty_options_admin(){
                 <option value="left"<?php if ($tasty_settings->sidebar_alignment == 'left') echo ' selected="selected"'; ?>>Left</option>
             </select>
         </p>
+        <p>
+            <label for="tasty_header_text">Header Text:</label>
+            <input type="checkbox" name="tasty_header_text" value="true" id="tasty_header_text" <?php if ($tasty_settings->header_text) echo' checked="checked"'; ?> />
+        </p>
         
         <p><input type="submit" name="submit" value="Save Settings"></p>
     </form>
@@ -63,16 +67,18 @@ function tasty_save_options(){
         $tasty_settings = new Settings;
 
         // Color Scheme
-        $tasty_settings->color = ($_POST['tasty_color']) ? $_POST['tasty_color'] : 'tasty_pink';
+        $tasty_settings->color = $_POST['tasty_color'];
         
         // Sidebar Alignment
-        $tasty_settings->sidebar_alignment = ($_POST['tasty_sidebar_alignment']) ? $_POST['tasty_sidebar_alignment'] : 'right';
+        $tasty_settings->sidebar_alignment = $_POST['tasty_sidebar_alignment'];
+        
+        // Header Text
+        $tasty_settings->header_text = $_POST['tasty_header_text'];
         
         $tasty_settings->save_settings();
     }
 
     wp_redirect(admin_url('themes.php?page=tasty-options&saved=true'));
-
 }
 
 ?>

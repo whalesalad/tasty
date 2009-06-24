@@ -8,6 +8,7 @@ class Settings {
     function defaults() {
         $defaults->color = 'pink';
         $defaults->sidebar_alignment = 'left';
+        $defaults->header_text = true;
         return $defaults;
     }
     
