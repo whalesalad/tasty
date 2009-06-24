@@ -28,12 +28,13 @@ include('functions.php');
 <?php wp_head(); ?>
 </head>
 <body <?php tasty_body_class(); ?>>
-    <?php print_r($tasty_settings); ?>
     <div id="wrapper">
         <div class="innerTop"></div>
         <div id="header">
-            <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
-            <h2><?php bloginfo('description'); ?></h2>
+            <?php if ($tasty_settings->header_text) { ?>
+                <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+                <h2><?php bloginfo('description'); ?></h2>
+            <?php } ?>
             <div class="search">
                 <label class="span" for="searchInput">Search the site...</label>
                 <input type="text" name="search" value="" id="searchInput" />

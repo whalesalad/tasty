@@ -13,11 +13,7 @@ function tasty_add_options_pages(){
 }
 
 function tasty_options_admin(){ 
-    // add_option('tasty_color', 'tasty_pink', '', 'yes');
-    // add_option('tasty_sidebar_alignment', 'right', '', 'yes');
-    
-    $tasty_settings = new Settings;
-    $tasty_settings->get_settings();
+    global $tasty_settings;
     
     ?>
     <h2><?php _e('Tasty Theme Options', 'tasty'); ?></h2>
@@ -54,18 +50,17 @@ function tasty_options_admin(){
             <label for="tasty_header_text">Header Text:</label>
             <input type="checkbox" name="tasty_header_text" value="true" id="tasty_header_text" <?php if ($tasty_settings->header_text) echo' checked="checked"'; ?> />
         </p>
-        
         <p><input type="submit" name="submit" value="Save Settings"></p>
     </form>
 <?php } 
 
 function tasty_save_options(){
+    global $tasty_settings;
+    
     if (!current_user_can('edit_themes'))
         wp_die(__('Sorry, you don\'t have sufficient admin privileges to modify theme settings.', 'tasty'));
 
     if (isset($_POST['submit'])) {
-        $tasty_settings = new Settings;
-
         // Color Scheme
         $tasty_settings->color = $_POST['tasty_color'];
         
@@ -73,7 +68,7 @@ function tasty_save_options(){
         $tasty_settings->sidebar_alignment = $_POST['tasty_sidebar_alignment'];
         
         // Header Text
-        $tasty_settings->header_text = $_POST['tasty_header_text'];
+        $tasty_settings->header_text = (isset($_POST['tasty_header_text'])) ? true : false;
         
         $tasty_settings->save_settings();
     }

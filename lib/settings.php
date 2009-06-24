@@ -5,6 +5,10 @@
  */
 
 class Settings {
+    function __construct() {
+        $this->get_settings();
+    }
+    
     function defaults() {
         $defaults->color = 'pink';
         $defaults->sidebar_alignment = 'left';

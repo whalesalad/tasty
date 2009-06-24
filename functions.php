@@ -12,8 +12,8 @@ require_once(TASTY_LIB . '/core.php');
 // Tasty Settings
 require_once(TASTY_LIB . '/settings.php');
 
+// Auto-instantiate the settings
 $tasty_settings = new Settings;
-$tasty_settings->get_settings();
 
 // Template Features
 require_once(TASTY_LIB . '/template.php');

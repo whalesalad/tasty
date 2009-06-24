@@ -5,17 +5,15 @@
  */
 
 function tasty_stylesheet_url(){
-    $tasty_settings = new Settings;
-    $tasty_settings->get_settings();
+    global $tasty_settings;
     
     $tasty_color = (isset($tasty_settings->color)) ? $tasty_settings->color : 'pink';
     echo '<link rel="stylesheet" href="'.get_bloginfo('stylesheet_directory').'/css/'.$tasty_color.'.css" />';
 }
 
 function tasty_sidebar_alignment(){
-    $tasty_settings = new Settings;
-    $tasty_settings->get_settings();
-    
+    global $tasty_settings;
+
     $tasty_sidebar_alignment = ($tasty_settings->sidebar_alignment) ? $tasty_settings->sidebar_alignment : 'right';
     return $tasty_sidebar_alignment;
 }
