@@ -4,11 +4,15 @@
  * @subpackage Tasty
  */
 
-function tasty_stylesheet_url(){
+function tasty_styles(){
     global $tasty_settings;
     
+    // Base CSS Style
+    echo '<link rel="stylesheet" href="'.get_bloginfo('stylesheet_url').'" />'."\n";
+
+    // Color-specific CSS Style
     $tasty_color = (isset($tasty_settings->color)) ? $tasty_settings->color : 'pink';
-    echo '<link rel="stylesheet" href="'.get_bloginfo('stylesheet_directory').'/css/'.$tasty_color.'.css" />';
+    echo '<link rel="stylesheet" href="'.get_bloginfo('stylesheet_directory').'/css/'.$tasty_color.'.css" />'."\n";
 }
 
 function tasty_sidebar_alignment(){
@@ -70,34 +74,116 @@ function tasty_render_comment($comment, $args, $depth){
 * SocialGrid
 * 
 */
-/*
-    <ul class="socialButtons">
-        <li class="button rss"><a href="#rss">RSS</a></li>
-        <li class="button email"><a href="#email">Email</a></li>
-        <li class="button youtube"><a href="#youtube">Youtube</a></li>
-        <li class="button twitter"><a href="#twitter">Twitter</a></li>
-        <li class="button facebook"><a href="#facebook">Facebook</a></li>
-        <li class="button myspace"><a href="#myspace">MySpace</a></li>
-        <li class="button flickr"><a href="#flickr">Flickr</a></li>
-        <li class="button delicious"><a href="#delicious">Delicious</a></li>
-    </ul>
+
+class SocialGrid {
+    function __construct() {
+        $this->buttons = array(
+            "rss" => array(
+                "text" => "Subscribe to My Feed",
+                "url" => $this->get_rss_url()
+            ),
+            "email" => array(
+                "text" => "Subscribe via Email",
+                "url" => $this->get_email_url()
+            ),
+            "youtube" => array(
+                "text" => "My YouTube Videos",
+                "url" => $this->get_youtube_url()
+            ),
+            "twitter" => array(
+                "text" => "My Twitter Profile",
+                "url" => $this->get_twitter_url()
+            ),
+            "facebook" => array(
+                "text" => "My Facebook Profile",
+                "url" => $this->get_facebook_url()
+            ),
+            "myspace" => array(
+                "text" => "My MySpace Profile",
+                "url" => $this->get_myspace_url()
+            ),
+            "flickr" => array(
+                "text" => "My Flickr Photos",
+                "url" => $this->get_flickr_url()
+            ),
+            "delicious" => array(
+                "text" => "My Delicious Bookmarks",
+                "url" => $this->get_delicious_url()
+            )
+        );
+        
+        $this->render_buttons($this->buttons);
+        
+    }
     
-*/
-// class SocialGrid {
-//     
-//     function __construct() {
-//         // Get all the parameters for the shenanigans from the DB
-//         $this->$rss_button = new array("text" => "RSS", "class" => "rss", "url" => NULL);
-//         $this->$email_button = new array("text" => "Email", "class" => "email", "url" => NULL);
-//         $this->$youtube_button = new array("text" => "YouTube", "class" => "youtube", "url" => NULL);
-//         $this->$twitter_button = new array("text" => "Twitter", "class" => "twitter", "url" => NULL);
-//         $this->$facebook_button = new array("text" => "Facebook", "class" => "facebook", "url" => NULL);
-//         $this->$myspace_button = new array("text" => "MySpace", "class" => "myspace", "url" => NULL);
-//         $this->$flickr_button = new array("text" => "Flickr", "class" => "flickr", "url" => NULL);
-//         $this->$delicious_button = new array("text" => "Delicious", "class" => "delicious", "url" => NULL);
-//     }
-//     
-// }
+    function create_button($class, $button) {
+        if (!isset($button["url"])) {
+            return;
+        }
+        // Takes a button, Array [text, class, url] and prints it
+        echo '<li class="button '.$class.'"><a href="'.$button["url"].'">'.$button["text"].'</a></li>';
+    }
+    
+    function render_buttons($buttons) {
+        echo '<ul class="socialButtons">';
+        foreach ($buttons as $key => $value) {
+            $this->create_button($key, $value);
+        }
+        echo '</ul>';
+    }
+    
+    function get_rss_url() {
+        global $tasty_settings;
+        if ($tasty_settings->rss_url) {
+            return 'http://feeds2.feedburner.com/'.$tasty_settings->rss_url;
+        } else {
+            return get_bloginfo('rss2_url');
+        }
+    }
+    
+    function get_email_url() {
+        global $tasty_settings;
+        if ($tasty_settings->rss_url)
+            return 'http://feedburner.google.com/fb/a/mailverify?uri='.$tasty_settings->rss_url;
+    }
+    
+    function get_youtube_url() {
+        global $tasty_settings;
+        if ($tasty_settings->youtube_url)
+            return 'http://youtube.com/'.$tasty_settings->youtube_url;
+    }
+    
+    function get_twitter_url() {
+        global $tasty_settings;
+        if ($tasty_settings->twitter_url)
+            return 'http://twitter.com/'.$tasty_settings->twitter_url;
+    }
+    
+    function get_facebook_url() {
+        global $tasty_settings;
+        if ($tasty_settings->facebook_url)
+            return 'http://facebook.com/'.$tasty_settings->facebook_url;
+    }
+    
+    function get_myspace_url() {
+        global $tasty_settings;
+        if ($tasty_settings->myspace_url)
+            return 'http://myspace.com/'.$tasty_settings->myspace_url;
+    }
+    
+    function get_flickr_url() {
+        global $tasty_settings;
+        if ($tasty_settings->flickr_url)
+            return 'http://flickr.com/photos/'.$tasty_settings->flickr_url;
+    }
+    
+    function get_delicious_url() {
+        global $tasty_settings;
+        if ($tasty_settings->delicious_url)
+            return 'http://delicious.com/'.$tasty_settings->delicious_url;
+    }
+    
+}
 
 
 ?>

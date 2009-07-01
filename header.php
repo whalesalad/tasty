@@ -15,8 +15,7 @@ include('functions.php');
 
 <title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
-<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
-<?php tasty_stylesheet_url(); ?>
+<?php tasty_styles(); ?>
 
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
@@ -25,6 +24,16 @@ include('functions.php');
 <script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.js" type="text/javascript"></script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/js/tasty.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+/* <![CDATA[ */
+$(document).ready(function(){
+    $('#header').click(function() {
+        window.location = '<?php bloginfo('url'); ?>'; return false;
+    });
+});
+/* ]]> */
+</script>
+
 <?php wp_head(); ?>
 </head>
 <body <?php tasty_body_class(); ?>>
@@ -32,7 +41,7 @@ include('functions.php');
         <div class="innerTop"></div>
         <div id="header">
             <?php if ($tasty_settings->header_text) { ?>
-                <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo('name'); ?></a></h1>
+                <h1><?php bloginfo('name'); ?></h1>
                 <h2><?php bloginfo('description'); ?></h2>
             <?php } ?>
             <div class="search">

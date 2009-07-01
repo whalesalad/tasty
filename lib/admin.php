@@ -50,6 +50,45 @@ function tasty_options_admin(){
             <label for="tasty_header_text">Header Text:</label>
             <input type="checkbox" name="tasty_header_text" value="true" id="tasty_header_text" <?php if ($tasty_settings->header_text) echo' checked="checked"'; ?> />
         </p>
+        
+        <br />
+        
+        <p>
+            <label for="tasty_rss_url">FeedBurner Username:</label>
+            <input type="text" name="tasty_rss_url" value="<?php if ($tasty_settings->rss_url) echo $tasty_settings->rss_url; ?>" id="tasty_rss_url" />
+            <span class="msg">This will blah blah</span>
+        </p>
+        
+        <p>
+            <label for="tasty_youtube_url">YouTube Username:</label>
+            <input type="text" name="tasty_youtube_url" value="<?php if ($tasty_settings->youtube_url) echo $tasty_settings->youtube_url; ?>" id="tasty_youtube_url" />
+        </p>
+        
+        <p>
+            <label for="tasty_twitter_url">Twitter Username:</label>
+            <input type="text" name="tasty_twitter_url" value="<?php if ($tasty_settings->twitter_url) echo $tasty_settings->twitter_url; ?>" id="tasty_twitter_url" />
+        </p>
+        
+        <p>
+            <label for="tasty_facebook_url">Facebook Username:</label>
+            <input type="text" name="tasty_facebook_url" value="<?php if ($tasty_settings->facebook_url) echo $tasty_settings->facebook_url; ?>" id="tasty_facebook_url" />
+        </p>
+        
+        <p>
+            <label for="tasty_myspace_url">Myspace Username:</label>
+            <input type="text" name="tasty_myspace_url" value="<?php if ($tasty_settings->myspace_url) echo $tasty_settings->myspace_url; ?>" id="tasty_myspace_url" />
+        </p>
+        
+        <p>
+            <label for="tasty_flickr_url">Flickr Username:</label>
+            <input type="text" name="tasty_flickr_url" value="<?php if ($tasty_settings->flickr_url) echo $tasty_settings->flickr_url; ?>" id="tasty_flickr_url" />
+        </p>
+        
+        <p>
+            <label for="tasty_delicious_url">Delicious Username:</label>
+            <input type="text" name="tasty_delicious_url" value="<?php if ($tasty_settings->delicious_url) echo $tasty_settings->delicious_url; ?>" id="tasty_delicious_url" />
+        </p>
+        
         <p><input type="submit" name="submit" value="Save Settings"></p>
     </form>
 <?php } 
@@ -69,6 +108,15 @@ function tasty_save_options(){
         
         // Header Text
         $tasty_settings->header_text = (isset($_POST['tasty_header_text'])) ? true : false;
+        
+        // Social Grid
+        $tasty_settings->rss_url = $_POST['tasty_rss_url'];
+        $tasty_settings->youtube_url = $_POST['tasty_youtube_url'];
+        $tasty_settings->twitter_url = $_POST['tasty_twitter_url'];
+        $tasty_settings->facebook_url = $_POST['tasty_facebook_url'];
+        $tasty_settings->myspace_url = $_POST['tasty_myspace_url'];
+        $tasty_settings->flickr_url = $_POST['tasty_flickr_url'];
+        $tasty_settings->delicious_url = $_POST['tasty_delicious_url'];
         
         $tasty_settings->save_settings();
     }

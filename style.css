@@ -43,6 +43,10 @@ body {
         position: relative;
     }
     
+        #wrapper #header a.headerLink {
+            display: block;
+        }
+    
         #wrapper #header h1 {
             color: #FFF;
             font-size: 2.4em;
@@ -425,7 +429,51 @@ body {
             width: 50px;
             height: 50px;
             margin: 0 10px 10px 0;
+            position: relative;
         }
+        
+        #sidebar ul.socialButtons li.button div.tooltip {
+            position: absolute;
+            top: -25px;
+            left: -10px;
+            white-space: nowrap;
+            display: none;
+            z-index: 999;
+        }
+        
+            #sidebar ul.socialButtons li.button div.tooltip span.center {
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 1.2em;
+                background: url(/wp-content/themes/tasty/img/tooltipCenter.png) top center no-repeat;
+                display: block;
+                padding: 0 10px;
+                line-height: 30px;
+                color: #FFF;
+                font-weight: bold;
+                height: 48px;
+                text-shadow: 0 1px 1px #000;
+            }
+            
+            #sidebar ul.socialButtons li.button div.tooltip span.left,
+            #sidebar ul.socialButtons li.button div.tooltip span.right {
+                width: 6px;
+                height: 33px;
+                display: block;
+                position: absolute;
+                top: 0;
+            }
+            
+            #sidebar ul.socialButtons li.button div.tooltip span.left {
+                background: url(/wp-content/themes/tasty/img/tooltipLeft.png) top left no-repeat;
+                left: -6px;
+            }
+            
+            #sidebar ul.socialButtons li.button div.tooltip span.right {
+                background: url(/wp-content/themes/tasty/img/tooltipRight.png) top right no-repeat;
+                right: -6px;
+            }
+            
+            
         
         #sidebar ul.socialButtons li.button a {
             display: block;

@@ -7,6 +7,7 @@
 <div id="sidebar">
     <ul>
         <li>
+            <?php new SocialGrid(); ?>
         </li>
 
         <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar()) : ?>
