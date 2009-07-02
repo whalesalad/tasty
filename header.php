@@ -4,9 +4,7 @@
  * @subpackage Tasty
  */
 
-include('functions.php');
-
-?>
+include('functions.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 
@@ -28,7 +26,7 @@ include('functions.php');
 /* <![CDATA[ */
 $(document).ready(function(){
     $('#header').click(function() {
-        window.location = '<?php bloginfo('url'); ?>'; return false;
+        // window.location = '<?php bloginfo('url'); ?>'; return false;
     });
 });
 /* ]]> */
@@ -45,9 +43,11 @@ $(document).ready(function(){
                 <h2><?php bloginfo('description'); ?></h2>
             <?php } ?>
             <div class="search">
+                <form action="." method="get">
                 <label class="span" for="searchInput">Search the site...</label>
-                <input type="text" name="search" value="" id="searchInput" />
+                <input type="text" name="s" value="<?php echo $_GET["s"]; ?>" id="searchInput" />
                 <input type="image" name="submit" src="<?php bloginfo('stylesheet_directory'); ?>/img/searchButton.png" id="submitSearch" />
+                </form>
             </div>
         </div>
             

@@ -14,18 +14,17 @@ $(document).ready(function(){
         var tooltipContent = new Array(
             '<span class="left"></span>',
             '<span class="center">'+$(this).children('a').text()+'</span>',
-            '<span class="right"></span>'
-        );
-        var tooltip = $('<div/>').attr({ 'class': 'tooltip' }).html(tooltipContent.join('')).appendTo($(this));
+            '<span class="right"></span>');
+            
+        var tooltip = $('<div/>').attr('class', 'tooltip').html(tooltipContent.join('')).appendTo($(this));
         
         tooltip.css('left', -(tooltip.width()/2)+25)
         
         $(this).hover(function() {
-            tooltip.show();
+            tooltip.fadeIn('fast');
         }, function() {
-            tooltip.hide();
+            tooltip.fadeOut('fast');
         });
         
     });
-
 });

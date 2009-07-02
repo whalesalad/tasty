@@ -9,6 +9,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
 
 <?php if (!post_password_required()) { ?>
     <div class="commentsMeta">
+        <a name="comments"></a>
         <h3><?php comments_number('No Responses', 'One Response', '% Responses' );?></h3>
     </div>
 <?php } else { ?>

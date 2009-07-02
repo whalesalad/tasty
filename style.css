@@ -148,6 +148,22 @@ body {
 
 /* /// Content/Post Style */
 
+#content .notice {
+    background: url(/wp-content/themes/tasty/img/noticeBg.png) 0 0 no-repeat;
+    line-height: 35px;
+    height: 35px;
+    overflow: hidden;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 0 1em 0;
+    color: #333;
+}
+    
+    #content .notice a {
+        color: #333;
+    }
+
 #content p a {
     color: #FE005A;
     text-decoration: none;
@@ -164,7 +180,8 @@ body {
     margin-bottom: 20px;
 }
 
-    #content .post .postMeta {
+    #content .post .postMeta,
+    #content .page .postMeta {
         background: url(/wp-content/themes/tasty/img/postMetaBg.png) 0 0 no-repeat;
         height: 50px;
         overflow: hidden;
@@ -206,9 +223,15 @@ body {
             line-height: 1.7em;
             text-shadow: 0 1px 0 #000;
         }
+        
+            #content .page .postMeta h2 {
+                font-size: 2.2em;
+                margin-left: 0.5em;
+                line-height: 2.3em;
+            }
             
             #content .postMeta h2 a {
-                color: #FFD0E1; /* XXX*color */
+                color: #FFD0E1;
                 text-decoration: none;
                 text-transform: uppercase;
             }
@@ -228,10 +251,58 @@ body {
                 text-decoration: none;
             }
     
-    #content p {
-        font: 1.2em/2em "Verdana", "Tahoma", sans-serif;
-        margin-bottom: 1em;
+    #content .pagination {
+        color: #444;
+        background: url(/wp-content/themes/tasty/img/commentHeaderBg.png) 0 0 no-repeat;
+        height: 35px;
+        line-height: 35px;
+        overflow: hidden;
+        padding: 0 10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 1.4em;
+        text-shadow: 0 1px 0 #FFF;
+        color: #333;
     }
+    
+        #content .pagination span.left {
+            float: left;
+        }
+        
+        #content .pagination span.right {
+            float: right;
+        }
+        
+        #content .pagination a {
+            color: #333;
+        }
+    
+    #content .postContent {
+        font: 1.2em/2em "Verdana", "Tahoma", sans-serif;
+    }
+    
+        #content .postContent p {
+            margin: 0 0 1em 0;
+        }
+    
+        #content .postContent blockquote {
+            margin: 0 0 1em 1em;
+            padding: 0.75em 1em;
+            border-left: 1px solid #CCC;
+            background: #EEE;
+        }
+        
+        #content .postContent code, 
+        #content .postContent pre { 
+            font-family: Consolas, Monaco, Courier, "Courier New", Verdana, sans-serif;
+        }
+        
+        #content .postContent sub, #content .postContent sup { line-height: 0.75em }
+        
+        #content .postContent ul, #content .postContent ol { margin: 0 0 1.5em 1.5em; }
+            #content .postContent ul ul, #content .postContent ul ol, #content .postContent ol ul, #content .postContent ol ol { margin: 0 0 0 1.5em; }
+        
+        #content .postContent dl, #content .postContent dd { margin-bottom: 1.5em; }
     
     #content p.wp-caption-text {
         text-align: center;

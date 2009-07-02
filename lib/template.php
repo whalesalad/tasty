@@ -67,6 +67,7 @@ function tasty_render_comment($comment, $args, $depth){
         <div class="commentMeta">
             <span class="authorStar">&#10029;</span>
             <a href="<?php comment_author_url() ?>"><?php comment_author() ?></a> on <?php comment_date() ?> at <?php comment_time() ?>.
+            <?php edit_comment_link('EDIT', ' &bull; ', ''); ?> 
         </div>
 <?php } 
 
