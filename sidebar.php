@@ -3,12 +3,14 @@
  * @package WordPress
  * @subpackage Tasty
  */
-?>
+global $tasty_settings; ?>
 <div id="sidebar">
     <ul>
+        <?php if ($tasty_settings->socialgrid_enabled): ?>
         <li>
             <?php new SocialGrid(); ?>
         </li>
+        <?php endif; ?>
 
         <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar()) : ?>
 

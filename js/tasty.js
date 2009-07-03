@@ -10,6 +10,8 @@ $(document).ready(function(){
     });
     
     $('ul.socialButtons li').each(function(index) {
+        var button = $(this);
+        
         // Create a tooltip for each button
         var tooltipContent = new Array(
             '<span class="left"></span>',
@@ -18,7 +20,9 @@ $(document).ready(function(){
             
         var tooltip = $('<div/>').attr('class', 'tooltip').html(tooltipContent.join('')).appendTo($(this));
         
-        tooltip.css('left', -(tooltip.width()/2)+25)
+        tooltip.css('left', -(tooltip.width()/2)+25).bind('click', function(event) {
+            window.location = button.children('a').attr('href');
+        });
         
         $(this).hover(function() {
             tooltip.fadeIn('fast');

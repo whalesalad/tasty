@@ -1,18 +1,20 @@
 <?php
 /**
- * @package WordPress
+ * @package Word-Press
  * @subpackage Tasty
  */
 
 class Settings {
     function __construct() {
         $this->get_settings();
+        // update_option('tasty_settings', NULL);
     }
     
     function defaults() {
         $defaults->color = 'pink';
-        $defaults->sidebar_alignment = 'left';
+        $defaults->sidebar_alignment = 'right';
         $defaults->header_text = true;
+        $defaults->socialgrid_enabled = true;
         return $defaults;
     }
     
@@ -22,6 +24,11 @@ class Settings {
         if (!empty($saved_settings) && is_object($saved_settings)) {
             foreach ($saved_settings as $setting => $value)
                 $this->$setting = $value;
+        }
+        
+        if (empty($saved_settings)) {
+            $defaults = $this->defaults();
+            update_option('tasty_settings', $defaults);
         }
     }
     

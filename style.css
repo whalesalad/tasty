@@ -512,6 +512,10 @@ body {
             z-index: 999;
         }
         
+            #sidebar ul.socialButtons li.button div.tooltip:hover {
+                cursor: pointer !important;
+            }
+        
             #sidebar ul.socialButtons li.button div.tooltip span.center {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-size: 1.2em;
