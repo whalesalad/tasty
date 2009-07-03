@@ -25,8 +25,8 @@ include('functions.php'); ?>
 <script type="text/javascript">
 /* <![CDATA[ */
 $(document).ready(function(){
-    $('#header').click(function() {
-        // window.location = '<?php bloginfo('url'); ?>'; return false;
+    $('.headerOverlay').click(function() {
+        window.location = '<?php bloginfo('url'); ?>'; return false;
     });
 });
 /* ]]> */
@@ -38,10 +38,6 @@ $(document).ready(function(){
     <div id="wrapper">
         <div class="innerTop"></div>
         <div id="header">
-            <?php if ($tasty_settings->header_text) { ?>
-                <h1><?php bloginfo('name'); ?></h1>
-                <h2><?php bloginfo('description'); ?></h2>
-            <?php } ?>
             <div class="search">
                 <form action="." method="get">
                 <label class="span" for="searchInput">Search the site...</label>
@@ -49,5 +45,10 @@ $(document).ready(function(){
                 <input type="image" name="submit" src="<?php bloginfo('stylesheet_directory'); ?>/img/searchButton.png" id="submitSearch" />
                 </form>
             </div>
+            <div class="headerOverlay"></div>
+            <?php if ($tasty_settings->header_text): ?>
+            <h1><?php bloginfo('name'); ?></h1>
+            <h2><?php bloginfo('description'); ?></h2>
+            <?php endif; ?>
         </div>
             

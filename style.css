@@ -36,12 +36,18 @@ body {
     }
     
     #wrapper #header {
-        background: #333 url(/wp-content/themes/tasty/img/header.png) 0 0 no-repeat;
         width: 760px;
         height: 170px;
         margin: 0 auto 20px auto;
         position: relative;
     }
+    
+        #wrapper #header .headerOverlay {
+            display: block;
+            width: 760px;
+            height: 170px;
+            background: url(/wp-content/themes/tasty/img/headerOverlay.png) top left no-repeat;
+        }
     
         #wrapper #header a.headerLink {
             display: block;
