@@ -39,11 +39,11 @@ function tasty_options_admin(){
                 <th scope="row"><label for="tasty_color"><?php _e('Color Scheme'); ?></label></th>
                 <td>
                     <select name="tasty_color" id="tasty_color">
-                        <option value="pink"<?php if ($tasty_settings->color == 'pink') echo ' selected="selected"'; ?>>Pink</option>
-                        <option value="green"<?php if ($tasty_settings->color == 'green') echo ' selected="selected"'; ?>>Green</option>
-                        <option value="orange"<?php if ($tasty_settings->color == 'orange') echo ' selected="selected"'; ?>>Orange</option>
-                        <option value="purple"<?php if ($tasty_settings->color == 'purple') echo ' selected="selected"'; ?>>Purple</option>
-                        <option value="blue"<?php if ($tasty_settings->color == 'blue') echo ' selected="selected"'; ?>>Blue</option>
+                        <option value="pink"<?php if ($tasty_settings->color == 'pink') echo ' selected="selected"'; ?>>Hot Pink</option>
+                        <option value="green"<?php if ($tasty_settings->color == 'green') echo ' selected="selected"'; ?>>Lanimoo Green</option>
+                        <option value="orange"<?php if ($tasty_settings->color == 'orange') echo ' selected="selected"'; ?>>Zesty Orange</option>
+                        <option value="purple"<?php if ($tasty_settings->color == 'purple') echo ' selected="selected"'; ?>>Twilight Purple</option>
+                        <option value="blue"<?php if ($tasty_settings->color == 'blue') echo ' selected="selected"'; ?>>Icy Blue</option>
                     </select>
                 </td>
             </tr>

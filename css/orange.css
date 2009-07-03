@@ -2,6 +2,10 @@
     background: #333 url(/wp-content/themes/tasty/img/orange/header.jpg) 0 0 no-repeat;
 }
 
+#wrapper #header .search input#searchInput:focus {
+    outline-color: #fe8000;
+}
+
 #content p a {
     color: #fe8000;
     border-bottom: 1px dotted #fe8000;

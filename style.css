@@ -46,7 +46,7 @@ body {
             display: block;
             width: 760px;
             height: 170px;
-            background: url(/wp-content/themes/tasty/img/headerOverlay.png) top left no-repeat;
+            background: url(/wp-content/themes/tasty/img/headerOverlay.png) center center no-repeat;
         }
     
         #wrapper #header a.headerLink {
