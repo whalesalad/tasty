@@ -13,6 +13,17 @@ function tasty_styles(){
     // Color-specific CSS Style
     $tasty_color = (isset($tasty_settings->color)) ? $tasty_settings->color : 'pink';
     echo '<link rel="stylesheet" href="'.get_bloginfo('stylesheet_directory').'/css/'.$tasty_color.'.css" />'."\n";
+    
+    // If custom header
+    if ($tasty_settings->custom_header_image) {
+        $style  = "\n".'<style type="text/css" media="screen">'."\n";
+        $style .= "#wrapper #header {\n";
+        $style .= "\t".'background-image: url('. $tasty_settings->custom_header_image .') !important;'."\n";
+        $style .= "}\n";
+        $style .= '</style>'."\n";
+        echo $style;
+    }
+    
 }
 
 function tasty_sidebar_alignment(){
@@ -118,10 +129,9 @@ class SocialGrid {
     }
     
     function create_button($class, $button) {
-        if (!isset($button["url"])) {
+        if (!isset($button["url"]))
             return;
-        }
-        // Takes a button, Array [text, class, url] and prints it
+            
         echo '<li class="button '.$class.'"><a href="'.$button["url"].'">'.$button["text"].'</a></li>';
     }
     

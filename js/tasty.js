@@ -9,26 +9,28 @@ $(document).ready(function(){
         if ($(this).val()) { $(this).siblings('span.label, label.span').hide(); }
     });
     
-    $('ul.socialButtons li').each(function(index) {
-        var button = $(this);
-        
-        // Create a tooltip for each button
-        var tooltipContent = new Array(
-            '<span class="left"></span>',
-            '<span class="center">'+$(this).children('a').text()+'</span>',
-            '<span class="right"></span>');
-            
-        var tooltip = $('<div/>').attr('class', 'tooltip').html(tooltipContent.join('')).appendTo($(this));
-        
-        tooltip.css('left', -(tooltip.width()/2)+25).bind('click', function(event) {
-            window.location = button.children('a').attr('href');
+    if (!$.browser.msie) {
+        $('ul.socialButtons li').each(function(index) {
+            var button = $(this);
+
+            // Create a tooltip for each button
+            var tooltipContent = new Array(
+                '<span class="left"></span>',
+                '<span class="center">'+$(this).children('a').text()+'</span>',
+                '<span class="right"></span>');
+
+            var tooltip = $('<div/>').attr('class', 'tooltip').html(tooltipContent.join('')).appendTo($(this));
+
+            tooltip.css('left', -(tooltip.width()/2)+25).bind('click', function(event) {
+                window.location = button.children('a').attr('href');
+            });
+
+            button.hover(function() {
+                tooltip.fadeIn('fast');
+            }, function() {
+                tooltip.fadeOut('fast');
+            });
+
         });
-        
-        $(this).hover(function() {
-            tooltip.fadeIn('fast');
-        }, function() {
-            tooltip.fadeOut('fast');
-        });
-        
-    });
+    }
 });

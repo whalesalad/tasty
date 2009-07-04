@@ -14,6 +14,8 @@ include('functions.php'); ?>
 <title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 <?php tasty_styles(); ?>
+<!--[if IE 6]><link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/ie6.css" type="text/css" media="screen"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/ie7.css" type="text/css" media="screen"><![endif]-->
 
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="alternate" type="application/atom+xml" title="<?php bloginfo('name'); ?> Atom Feed" href="<?php bloginfo('atom_url'); ?>" />
@@ -38,6 +40,10 @@ $(document).ready(function(){
     <div id="wrapper">
         <div class="innerTop"></div>
         <div id="header">
+            <?php if ($tasty_settings->header_text): ?>
+                <h1><?php bloginfo('name'); ?></h1>
+                <h2><?php bloginfo('description'); ?></h2>
+            <?php endif; ?>
             <div class="search">
                 <form action="." method="get">
                 <label class="span" for="searchInput">Search the site...</label>
@@ -46,9 +52,5 @@ $(document).ready(function(){
                 </form>
             </div>
             <div class="headerOverlay"></div>
-            <?php if ($tasty_settings->header_text): ?>
-            <h1><?php bloginfo('name'); ?></h1>
-            <h2><?php bloginfo('description'); ?></h2>
-            <?php endif; ?>
         </div>
             

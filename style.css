@@ -39,25 +39,36 @@ body {
         width: 760px;
         height: 170px;
         margin: 0 auto 20px auto;
+        background-position: center center !important;
         position: relative;
     }
     
         #wrapper #header .headerOverlay {
+            position: absolute;
             display: block;
             width: 760px;
             height: 170px;
             background: url(/wp-content/themes/tasty/img/headerOverlay.png) center center no-repeat;
+            top: 0;
+            left: 0;
         }
     
         #wrapper #header a.headerLink {
             display: block;
         }
     
+        #wrapper #header h1,
+        #wrapper #header h2 {
+            float: left;
+            display: inline;
+            margin-left: 50px;
+            position: relative;
+        }
+    
         #wrapper #header h1 {
             color: #FFF;
             font-size: 2.4em;
-            padding: 55px 0 5px 0;
-            margin: 0 0 0 50px;
+            margin: 55px 0 10px 50px;
         }
         
             #wrapper #header h1 a {
@@ -66,9 +77,10 @@ body {
             }
         
         #wrapper #header h2 {
-            font-weight: normal;
+            font-size: 1.4em;
             color: #FFF;
-            margin: 0 0 0 50px;
+            font-weight: normal;
+            clear: left;
         }
     
         #wrapper #header .search {
@@ -77,6 +89,7 @@ body {
             right: 0;
             height: 40px;
             width: 240px;
+            z-index: 10000;
         }
         
             #wrapper #header .search label {
@@ -105,11 +118,13 @@ body {
     
     #wrapper #content {
         width: 500px;
+        display: inline;
     }
     
     #wrapper #sidebar {
         width: 240px;
         font: normal 1.1em/1.8em "Verdana", "Tahoma", sans-serif;
+        display: inline;
     }
     
     body.left-sidebar #wrapper #content {
@@ -491,6 +506,7 @@ body {
 
     #sidebar ul.socialButtons {
         margin: 0;
+        
     }
     
         #sidebar ul.socialButtons:after {
@@ -554,7 +570,6 @@ body {
                 right: -6px;
             }
             
-            
         
         #sidebar ul.socialButtons li.button a {
             display: block;
@@ -564,42 +579,39 @@ body {
             text-indent: -9999em;
             padding: 0 !important;
         }
-            
-            #sidebar ul.socialButtons li.button a:hover {
-                background-position: -50px 0;
-            }
         
         #sidebar ul.socialButtons li.button.rss a {
-            background-image: url(/wp-content/themes/tasty/img/social/rss.png);
+            background-image: url(/wp-content/themes/tasty/img/social/rss.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.email a {
-            background-image: url(/wp-content/themes/tasty/img/social/email.png);
+            background-image: url(/wp-content/themes/tasty/img/social/email.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.youtube a {
-            background-image: url(/wp-content/themes/tasty/img/social/youtube.png);
+            background-image: url(/wp-content/themes/tasty/img/social/youtube.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.twitter a {
-            background-image: url(/wp-content/themes/tasty/img/social/twitter.png);
+            background-image: url(/wp-content/themes/tasty/img/social/twitter.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.facebook a {
-            background-image: url(/wp-content/themes/tasty/img/social/facebook.png);
+            background-image: url(/wp-content/themes/tasty/img/social/facebook.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.myspace a {
-            background-image: url(/wp-content/themes/tasty/img/social/myspace.png);
+            background-image: url(/wp-content/themes/tasty/img/social/myspace.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.flickr a {
-            background-image: url(/wp-content/themes/tasty/img/social/flickr.png);
+            background-image: url(/wp-content/themes/tasty/img/social/flickr.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.delicious a {
-            background-image: url(/wp-content/themes/tasty/img/social/delicious.png);
+            background-image: url(/wp-content/themes/tasty/img/social/delicious.png) !important;
         }
+        
 
 .debug {
     padding: 10px;

@@ -1,0 +1,4 @@
+#content ol.postComments li.comment.comment-author-admin span.authorStar,
+#content ol.postComments li.comment.bypostauthor span.authorStar {
+    display: none !important;
+}

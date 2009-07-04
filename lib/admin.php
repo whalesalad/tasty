@@ -9,43 +9,156 @@ add_action('admin_menu', 'tasty_add_options_pages');
 add_action('admin_post_tasty_save', 'tasty_save_options');
 add_action('init', 'tasty_settings_head');
 
+if ($_GET['activated'])
+    tasty_activate_theme();
+    
+
 function tasty_add_options_pages(){
     add_theme_page(__('Tasty Theme Options', 'tasty'), __('Tasty Theme Options', 'tasty'), 'edit_themes', 'tasty-options', 'tasty_options_admin');
 }
 
 function tasty_settings_head() {
     wp_enqueue_style('tasty-settings-stylesheet', TASTY_STATIC . '/admin.css');
-    wp_enqueue_script('jquery-ui-core');
-    wp_enqueue_script('jquery-ui-sortable');
-    wp_enqueue_script('jquery-ui-tabs');
+    // wp_enqueue_script('jquery-ui-core');
+    // wp_enqueue_script('jquery-ui-sortable');
+    // wp_enqueue_script('jquery-ui-tabs');
     wp_enqueue_script('tasty-admin-js', TASTY_STATIC . '/admin.js');
 }
 
+function tasty_activate_theme() {
+    global $current_user;
+    get_currentuserinfo();
+    
+    $name = urlencode($current_user->first_name." ".$current_user->last_name);
+    $username = urlencode($current_user->user_login);
+    $email = urlencode($current_user->user_email);
+    $domain = urlencode(get_bloginfo('url'));
+    
+    $post = "name=$name&username=$username&email=$email&domain=$domain";
+    
+    $host       = 'activate.whalesalad.com';
+    $gateway    = '/collect/';
+    $useCURL    = in_array('curl', get_loaded_extensions());
+    $whalePing  = "X-whale-ping: Tasty Activation";
+    $response   = '';
+    $method     = (empty($post)) ? 'GET' : 'POST';
+
+    // There's a bug in the OS X Server/cURL combination that results in 
+    // memory allocation problems so don't use cURL even if it's available
+    if (isset($_SERVER['SERVER_SOFTWARE']) && strpos($_SERVER['SERVER_SOFTWARE'], 'Darwin') !== false)
+        $useCURL = false;
+
+    if ($useCURL) {
+        $handle = curl_init("http://{$host}{$gateway}");
+        curl_setopt($handle, CURLOPT_HTTPHEADER, array($whalePing));
+        curl_setopt($handle, CURLOPT_CONNECTTIMEOUT, 10);
+        curl_setopt($handle, CURLOPT_RETURNTRANSFER, 1);
+    } else {
+        $headers  = "{$method} {$gateway} HTTP/1.0\r\n";
+        $headers .= "Host: $host\r\n";
+        $headers .= "{$whalePing}\r\n";
+    }
+
+    if (!empty($post)) {
+        // This is a POST request
+        if ($useCURL) {
+            curl_setopt($handle, CURLOPT_POST, true);
+            curl_setopt($handle, CURLOPT_POSTFIELDS, $post);
+        } else {
+            $headers .= "Content-type: application/x-www-form-urlencoded\r\n";
+            $headers .= "Content-length: ".strlen($post)."\r\n";
+        }
+    }
+
+    if ($useCURL) {
+        $response = curl_exec($handle);
+        if (curl_errno($handle)) {
+            $error = 'Could not connect to Gateway (using cURL): '.curl_error($handle);
+        }
+        curl_close($handle);
+    } else {
+        $headers .= "\r\n";
+        $socket = @fsockopen($host, 80, $errno, $errstr, 10);
+        if ($socket) {
+            fwrite($socket, $headers.$post);
+            while (!feof($socket)) {
+                $response .= fgets ($socket, 1024);
+            }
+            $response = explode("\r\n\r\n", $response, 2);
+            $response = trim($response[1]);
+        } else {
+            $error = 'Could not connect to Gateway (using fsockopen): '.$errstr.' ('.$errno.')';
+            $response = 'FAILED';
+        }
+    }
+    
+    wp_redirect(admin_url('themes.php?page=tasty-options&active=true'));
+}
+
+function tasty_color_dropdown(){
+    global $tasty_settings;
+    
+    $colors = array(
+        "pink" => "Hot Pink",
+        "green" => "Lani Green",
+        "orange" => "Agent Orange",
+        "purple" => "Twilight Purple",
+        "blue" => "Frost Blue"
+    );
+    
+    $html = '<select name="tasty_color" id="tasty_color">'."\n";
+    
+    foreach ($colors as $color => $value) {
+        if ($tasty_settings->color == $color) {
+            $html .= '<option value="'.$color.'" selected="selected">'.$value.'</option>'."\n";
+        } else {
+            $html .= '<option value="'.$color.'">'.$value.'</option>'."\n";
+        }
+    }
+    
+    $html .= '</select>';
+
+    echo $html;
+}
 
 function tasty_options_admin(){ 
     global $tasty_settings; ?>
     <h2><?php _e('Tasty Theme Options', 'tasty'); ?></h2>
-    <p>
+    <?php
+        global $current_user;
+        get_currentuserinfo();
+        
+        $name = urlencode($current_user->first_name." ".$current_user->last_name);
+        $username = urlencode($current_user->user_login);
+        $email = urlencode($current_user->user_email);
+        $domain = urlencode(get_bloginfo('url'));
+
+        echo "<p>";
+        echo "<strong>Name: </strong>".$name."\n";
+        echo "<strong>Username: </strong>".$username."\n";
+        echo "<strong>Email: </strong>".$email."\n";
+        echo "<strong>Domain: </strong>".$domain."\n";
+        echo "</p>";
     
-    <?php if ($_GET['saved']) { ?>
-        <div id="updated" class="updated fade">
-            <p><?php echo __('Theme options saved!', 'tasty').' <a href="'.get_bloginfo('url').'/">'.__('View your website &rarr;', 'tasty').'</a>'; ?></p>
-        </div>
-    <?php } ?>
+    ?>
+    
+    <?php if ($_GET['saved']): ?>
+    <div id="updated" class="updated fade">
+        <p><?php echo __('Theme options saved!', 'tasty').' <a href="'.get_bloginfo('url').'/">'.__('View your website &rarr;', 'tasty').'</a>'; ?></p>
+    </div>
+    <?php endif; ?>
+    
+    <?php if ($_GET['active']): ?>
+    <div id="updated" class="updated fade">
+        <p><?php echo __('You\'ve successfully activated the Tasty theme! Feel free to tinker with the settings below or ', 'tasty').' <a href="'.get_bloginfo('url').'/">'.__('view your website &rarr;', 'tasty').'</a>'; ?></p>
+    </div>
+    <?php endif; ?>
     
     <form action="<?php echo admin_url('admin-post.php?action=tasty_save'); ?>" method="POST">
         <table class="form-table">
             <tr valign="top">
                 <th scope="row"><label for="tasty_color"><?php _e('Color Scheme'); ?></label></th>
-                <td>
-                    <select name="tasty_color" id="tasty_color">
-                        <option value="pink"<?php if ($tasty_settings->color == 'pink') echo ' selected="selected"'; ?>>Hot Pink</option>
-                        <option value="green"<?php if ($tasty_settings->color == 'green') echo ' selected="selected"'; ?>>Lanimoo Green</option>
-                        <option value="orange"<?php if ($tasty_settings->color == 'orange') echo ' selected="selected"'; ?>>Zesty Orange</option>
-                        <option value="purple"<?php if ($tasty_settings->color == 'purple') echo ' selected="selected"'; ?>>Twilight Purple</option>
-                        <option value="blue"<?php if ($tasty_settings->color == 'blue') echo ' selected="selected"'; ?>>Icy Blue</option>
-                    </select>
-                </td>
+                <td><?php tasty_color_dropdown(); ?></td>
             </tr>
             <tr valign="top">
                 <th scope="row"><label for="tasty_sidebar_alignment"><?php _e('Sidebar Alignment'); ?></label></th>
@@ -57,6 +170,14 @@ function tasty_options_admin(){
                 </td>
             </tr>
 
+            <tr valign="top">
+                <th scope="row"><label for="tasty_custom_header_image"><?php _e('Custom Header Image'); ?></label></th>
+                <td>
+                    <input type="text" name="tasty_custom_header_image" value="<?php if ($tasty_settings->custom_header_image) echo $tasty_settings->custom_header_image; ?>" id="tasty_rss_url" class="regular-text" /><br/>
+                    <span class="description"><?php _e('The header is 760px wide by 170px high. Enter the URL of an image into this box to use it as your header image. Leave this blank to use the default header image.') ?></span>
+                </td>
+            </tr>
+            
             <tr valign="top">
                 <th scope="row"><label for="tasty_header_text"><?php _e('Header Text'); ?></label></th>
                 <td>
@@ -131,6 +252,9 @@ function tasty_save_options(){
         
         // Sidebar Alignment
         $tasty_settings->sidebar_alignment = $_POST['tasty_sidebar_alignment'];
+        
+        // Header BG Image
+        $tasty_settings->custom_header_image = $_POST['tasty_custom_header_image'];
         
         // Header Text
         $tasty_settings->header_text = (isset($_POST['tasty_header_text'])) ? true : false;

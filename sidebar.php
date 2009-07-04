@@ -5,14 +5,10 @@
  */
 global $tasty_settings; ?>
 <div id="sidebar">
+    <?php if ($tasty_settings->socialgrid_enabled)
+        new SocialGrid(); ?>
     <ul>
-        <?php if ($tasty_settings->socialgrid_enabled): ?>
-        <li>
-            <?php new SocialGrid(); ?>
-        </li>
-        <?php endif; ?>
-
-        <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar()) : ?>
+        <?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar()): ?>
 
         <li><h2>Archives</h2>
             <ul>
