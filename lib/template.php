@@ -4,6 +4,7 @@
  * @subpackage Tasty
  */
 
+// Outputs various stylesheets
 function tasty_styles(){
     global $tasty_settings;
     
@@ -26,6 +27,7 @@ function tasty_styles(){
     
 }
 
+// Returns sidebar alignment
 function tasty_sidebar_alignment(){
     global $tasty_settings;
 
@@ -82,11 +84,7 @@ function tasty_render_comment($comment, $args, $depth){
         </div>
 <?php } 
 
-/**
-* SocialGrid
-* 
-*/
-
+// SocialGrid class. Instantiated in sidebar, renders grid of Social Media buttons.
 class SocialGrid {
     function __construct() {
         $this->buttons = array(
@@ -202,6 +200,5 @@ function tasty_pagination() {
     echo "\t".'<span class="right">'.get_previous_posts_link('Newer Posts &rarr;').'</span>';
     echo '</div>';
 }
-
 
 ?>
