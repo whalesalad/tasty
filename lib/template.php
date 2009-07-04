@@ -196,5 +196,12 @@ class SocialGrid {
     
 }
 
+function tasty_pagination() {
+    echo '<div class="pagination">';
+    echo "\t".'<span class="left">'.get_next_posts_link('&larr; Older Posts').'</span>';
+    echo "\t".'<span class="right">'.get_previous_posts_link('Newer Posts &rarr;').'</span>';
+    echo '</div>';
+}
+
 
 ?>

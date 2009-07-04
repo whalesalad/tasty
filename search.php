@@ -27,10 +27,7 @@ tasty_header(); ?>
                 </div>
             </div>
         <?php endwhile; ?>
-        <div class="pagination">
-            <span class="left"><?php next_posts_link('&larr; Older Posts') ?></span>
-            <span class="right"><?php previous_posts_link('Newer Posts &rarr;') ?></span>
-        </div>
+        <?php tasty_pagination(); ?>
     <?php else: ?>
         <div class="notice">No posts found. Try a different search?</div>
         <?php get_search_form(); ?>

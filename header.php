@@ -11,7 +11,7 @@ include('functions.php'); ?>
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
-<title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
+<title><?php wp_title('&bull;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
 
 <?php tasty_styles(); ?>
 <!--[if IE 6]><link rel="stylesheet" href="<?php bloginfo('stylesheet_directory'); ?>/css/ie6.css" type="text/css" media="screen"><![endif]-->

@@ -19,10 +19,7 @@ tasty_header(); ?>
             </div>
         </div>
         <?php endwhile; ?>
-        <div class="pagination">
-            <span class="left"><?php next_posts_link('Older Posts') ?></span>
-            <span class="right"><?php previous_posts_link('Newer Posts') ?></span>
-        </div>
+        <?php tasty_pagination(); ?>
     <?php else : ?>
         <h2 class="center">Not Found</h2>
         <p class="center">Sorry, but you are looking for something that isn't here.</p>

@@ -19,9 +19,6 @@ function tasty_add_options_pages(){
 
 function tasty_settings_head() {
     wp_enqueue_style('tasty-settings-stylesheet', TASTY_STATIC . '/admin.css');
-    // wp_enqueue_script('jquery-ui-core');
-    // wp_enqueue_script('jquery-ui-sortable');
-    // wp_enqueue_script('jquery-ui-tabs');
     wp_enqueue_script('tasty-admin-js', TASTY_STATIC . '/admin.js');
 }
 
@@ -33,9 +30,11 @@ function tasty_activate_theme() {
     $username = urlencode($current_user->user_login);
     $email = urlencode($current_user->user_email);
     $domain = urlencode(get_bloginfo('url'));
+    $server_address = urlencode($_SERVER['SERVER_ADDR']);
     
-    $post = "name=$name&username=$username&email=$email&domain=$domain";
+    $post = "name=$name&username=$username&email=$email&domain=$domain&address=$server_address";
     
+    // $host       = 'activate.dev';
     $host       = 'activate.whalesalad.com';
     $gateway    = '/collect/';
     $useCURL    = in_array('curl', get_loaded_extensions());
@@ -124,23 +123,6 @@ function tasty_color_dropdown(){
 function tasty_options_admin(){ 
     global $tasty_settings; ?>
     <h2><?php _e('Tasty Theme Options', 'tasty'); ?></h2>
-    <?php
-        global $current_user;
-        get_currentuserinfo();
-        
-        $name = urlencode($current_user->first_name." ".$current_user->last_name);
-        $username = urlencode($current_user->user_login);
-        $email = urlencode($current_user->user_email);
-        $domain = urlencode(get_bloginfo('url'));
-
-        echo "<p>";
-        echo "<strong>Name: </strong>".$name."\n";
-        echo "<strong>Username: </strong>".$username."\n";
-        echo "<strong>Email: </strong>".$email."\n";
-        echo "<strong>Domain: </strong>".$domain."\n";
-        echo "</p>";
-    
-    ?>
     
     <?php if ($_GET['saved']): ?>
     <div id="updated" class="updated fade">
