@@ -52,6 +52,26 @@ function tasty_body_class(){
     echo 'class="'.join(' ', $classes).'"';
 }
 
+function tasty_title(){
+    $title = get_the_title();
+
+    // Shorten
+    if (strlen($title) > $length = 35) {
+        $suffix = '...';
+        $short_desc = trim(str_replace(array("\r","\n", "\t"), ' ', strip_tags($title)));
+        $desc = trim(substr($short_desc, 0, $length));
+        $lastchar = substr($desc, -1, 1);
+        if ($lastchar == '.' || $lastchar == '!' || $lastchar == '?') $suffix='';
+        $desc .= $suffix;
+        $title = $desc;
+    }
+
+    if (strlen($title) == 0)
+        $title = "Untitled";
+    
+    echo $title;
+}
+
 if (function_exists('register_sidebar')){
     register_sidebar(array(
         'before_widget' => '<li>',
