@@ -4,6 +4,8 @@
  * @subpackage Tasty
  */
 
+define('TASTY_VERSION', 1.1);
+
 define('TASTY_LIB', TEMPLATEPATH . '/lib');
 define('TASTY_STATIC', get_bloginfo('template_url') . '/lib/static');
 

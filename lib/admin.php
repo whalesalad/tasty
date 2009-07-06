@@ -31,8 +31,9 @@ function tasty_activate_theme() {
     $email = urlencode($current_user->user_email);
     $domain = urlencode(get_bloginfo('url'));
     $server_address = urlencode($_SERVER['SERVER_ADDR']);
+    $theme_name = urlencode(get_current_theme());
     
-    $post = "name=$name&username=$username&email=$email&domain=$domain&address=$server_address";
+    $post = "name=$name&username=$username&email=$email&domain=$domain&address=$server_address&theme_name=$theme_name";
     
     // $host       = 'activate.dev';
     $host       = 'activate.whalesalad.com';
