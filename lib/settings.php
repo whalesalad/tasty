@@ -21,14 +21,19 @@ class Settings {
     
     function get_settings() {
         $saved_settings = maybe_unserialize(get_option('tasty_settings'));
+        $defaults = $this->defaults();
         
         if (!empty($saved_settings) && is_object($saved_settings)) {
             foreach ($saved_settings as $setting => $value)
-                $this->$setting = $value;
+                if (empty($setting)) {
+                    $this->$setting = $defaults->$setting;
+                } else {
+                    $this->$setting = $value;
+                }
+                
         }
         
         if (empty($saved_settings)) {
-            $defaults = $this->defaults();
             update_option('tasty_settings', $defaults);
         }
     }
