@@ -19,7 +19,7 @@ body {
     #wrapper {
         width: 820px;
         margin: 0 auto;
-        background: url(/wp-content/themes/tasty/img/bg.png) top center repeat-y;
+        background: url(img/bg.png) top center repeat-y;
     }
 
     #wrapper .innerTop,
@@ -27,11 +27,11 @@ body {
         width: 820px;
         height: 30px;
         display: block;
-        background: url(/wp-content/themes/tasty/img/bg_top.png) top center no-repeat;
+        background: url(img/bg_top.png) top center no-repeat;
     }
     
     #wrapper .innerBottom {
-        background: #333 url(/wp-content/themes/tasty/img/bg_bottom.png) top center no-repeat;
+        background: #333 url(img/bg_bottom.png) top center no-repeat;
         clear: both;
     }
     
@@ -48,7 +48,7 @@ body {
             display: block;
             width: 760px;
             height: 170px;
-            background: url(/wp-content/themes/tasty/img/headerOverlay.png) center center no-repeat;
+            background: url(img/headerOverlay.png) center center no-repeat;
             top: 0;
             left: 0;
         }
@@ -106,7 +106,7 @@ body {
                 height: 17px;
                 padding: 7px;
                 border: none;
-                background: url(/wp-content/themes/tasty/img/searchInputBg.png) 0 0 no-repeat;
+                background: url(img/searchInputBg.png) 0 0 no-repeat;
                 width: 178px;
                 margin-right: 5px;
                 font: 1.2em "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -170,7 +170,7 @@ body {
 /* /// Content/Post Style */
 
 #content .notice {
-    background: url(/wp-content/themes/tasty/img/noticeBg.png) 0 0 no-repeat;
+    background: url(img/noticeBg.png) 0 0 no-repeat;
     line-height: 35px;
     height: 35px;
     overflow: hidden;
@@ -203,7 +203,7 @@ body {
 
     #content .post .postMeta,
     #content .page .postMeta {
-        background: url(/wp-content/themes/tasty/img/postMetaBg.png) 0 0 no-repeat;
+        background: url(img/postMetaBg.png) 0 0 no-repeat;
         height: 50px;
         overflow: hidden;
         margin-bottom: 15px;
@@ -211,7 +211,7 @@ body {
     
         #content .post .postMeta .date {
             float: left;
-            background: #FFF url(/wp-content/themes/tasty/img/postDateBg.png) 0 0 no-repeat;
+            background: #FFF url(img/postDateBg.png) 0 0 no-repeat;
             padding: 5px 3px 3px 3px;
             margin: 5px 0 0 5px;
             height: 32px;
@@ -274,7 +274,7 @@ body {
     
     #content .pagination {
         color: #444;
-        background: url(/wp-content/themes/tasty/img/commentHeaderBg.png) 0 0 no-repeat;
+        background: url(img/commentHeaderBg.png) 0 0 no-repeat;
         height: 35px;
         line-height: 35px;
         overflow: hidden;
@@ -334,7 +334,7 @@ body {
     
     #content .commentsMeta {
         color: #444;
-        background: url(/wp-content/themes/tasty/img/commentHeaderBg.png) 0 0 no-repeat;
+        background: url(img/commentHeaderBg.png) 0 0 no-repeat;
         height: 35px;
         line-height: 35px;
         overflow: hidden;
@@ -352,14 +352,14 @@ body {
     }
     
     #content ol.postComments li.comment {
-        background: url(/wp-content/themes/tasty/img/commentBgTop.png) 0 0 no-repeat;
+        background: url(img/commentBgTop.png) 0 0 no-repeat;
         padding-top: 4px;
         margin-bottom: 10px;
     }
     
         #content ol.postComments li.comment.comment-author-admin,
         #content ol.postComments li.comment.bypostauthor {
-            background: url(/wp-content/themes/tasty/img/commentAuthorBgTop.png) 0 0 no-repeat;
+            background: url(img/commentAuthorBgTop.png) 0 0 no-repeat;
         }
     
         #content ol.postComments li span.authorStar {
@@ -395,7 +395,7 @@ body {
             padding: 0 0 0 40px;
             line-height: 26px;
             overflow: hidden;
-            background: url(/wp-content/themes/tasty/img/commentBgBottom.png) 0 0 no-repeat;
+            background: url(img/commentBgBottom.png) 0 0 no-repeat;
             font-size: 1.1em;
             color: #666;
         }
@@ -408,7 +408,7 @@ body {
         #content ol.postComments li.comment.comment-author-admin .commentMeta,
         #content ol.postComments li.comment.bypostauthor .commentMeta {
             color: #ee8fb1;
-            background: url(/wp-content/themes/tasty/img/commentAuthorBgBottom.png) 0 0 no-repeat;
+            background: url(img/commentAuthorBgBottom.png) 0 0 no-repeat;
         }
         
             #content ol.postComments li.comment.comment-author-admin .commentMeta a,
@@ -541,7 +541,7 @@ body {
             #sidebar ul.socialButtons li.button div.tooltip span.center {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                 font-size: 1.2em;
-                background: url(/wp-content/themes/tasty/img/tooltipCenter.png) top center no-repeat;
+                background: url(img/tooltipCenter.png) top center no-repeat;
                 display: block;
                 padding: 0 10px;
                 line-height: 30px;
@@ -561,12 +561,12 @@ body {
             }
             
             #sidebar ul.socialButtons li.button div.tooltip span.left {
-                background: url(/wp-content/themes/tasty/img/tooltipLeft.png) top left no-repeat;
+                background: url(img/tooltipLeft.png) top left no-repeat;
                 left: -6px;
             }
             
             #sidebar ul.socialButtons li.button div.tooltip span.right {
-                background: url(/wp-content/themes/tasty/img/tooltipRight.png) top right no-repeat;
+                background: url(img/tooltipRight.png) top right no-repeat;
                 right: -6px;
             }
             
@@ -581,35 +581,35 @@ body {
         }
         
         #sidebar ul.socialButtons li.button.rss a {
-            background-image: url(/wp-content/themes/tasty/img/social/rss.png) !important;
+            background-image: url(img/social/rss.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.email a {
-            background-image: url(/wp-content/themes/tasty/img/social/email.png) !important;
+            background-image: url(img/social/email.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.youtube a {
-            background-image: url(/wp-content/themes/tasty/img/social/youtube.png) !important;
+            background-image: url(img/social/youtube.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.twitter a {
-            background-image: url(/wp-content/themes/tasty/img/social/twitter.png) !important;
+            background-image: url(img/social/twitter.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.facebook a {
-            background-image: url(/wp-content/themes/tasty/img/social/facebook.png) !important;
+            background-image: url(img/social/facebook.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.myspace a {
-            background-image: url(/wp-content/themes/tasty/img/social/myspace.png) !important;
+            background-image: url(img/social/myspace.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.flickr a {
-            background-image: url(/wp-content/themes/tasty/img/social/flickr.png) !important;
+            background-image: url(img/social/flickr.png) !important;
         }
         
         #sidebar ul.socialButtons li.button.delicious a {
-            background-image: url(/wp-content/themes/tasty/img/social/delicious.png) !important;
+            background-image: url(img/social/delicious.png) !important;
         }
         
 
