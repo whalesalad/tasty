@@ -11,7 +11,6 @@ add_action('init', 'tasty_settings_head');
 
 if ($_GET['activated'])
     tasty_activate_theme();
-    
 
 function tasty_add_options_pages(){
     add_theme_page(__('Tasty Theme Options', 'tasty'), __('Tasty Theme Options', 'tasty'), 'edit_themes', 'tasty-options', 'tasty_options_admin');
@@ -92,7 +91,7 @@ function tasty_activate_theme() {
             $response = 'FAILED';
         }
     }
-    
+
     wp_redirect(admin_url('themes.php?page=tasty-options&active=true'));
 }
 

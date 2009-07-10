@@ -7,7 +7,6 @@
 class Settings {
     function __construct() {
         $this->get_settings();
-        // update_option('tasty_settings', NULL);
     }
     
     function defaults() {
