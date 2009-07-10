@@ -2,7 +2,7 @@
 Theme Name: Tasty
 Theme URI: http://whalesalad.com/tasty/
 Description: A delicious and refreshing theme for Wordpress.
-Version: 1.0
+Version: 1.1
 Author: Michael Whalen
 Author URI: http://whalesalad.com/
 Tags: fixed width, two columns, widgets
@@ -610,10 +610,6 @@ body {
         #sidebar ul.socialButtons li.button.delicious a {
             background-image: url(img/social/delicious.png) !important;
         }
-    
-    #sidebar form#searchform {
-        
-    }
     
         #sidebar form#searchform label {
             display: none;
