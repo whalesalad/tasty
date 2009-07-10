@@ -32,8 +32,9 @@ function tasty_activate_theme() {
     $domain = urlencode(get_bloginfo('url'));
     $server_address = urlencode($_SERVER['SERVER_ADDR']);
     $theme_name = urlencode(get_current_theme());
+    $version = urlencode(TASTY_VERSION);
     
-    $post = "name=$name&username=$username&email=$email&domain=$domain&address=$server_address&theme_name=$theme_name";
+    $post = "name=$name&username=$username&email=$email&domain=$domain&address=$server_address&theme_name=$theme_name&version=$version";
     
     // $host       = 'activate.dev';
     $host       = 'activate.whalesalad.com';
@@ -162,12 +163,21 @@ function tasty_options_admin(){
             </tr>
             
             <tr valign="top">
-                <th scope="row"><label for="tasty_header_text"><?php _e('Header Text'); ?></label></th>
+                <th scope="row"><label for="tasty_header_text"><?php _e('Disable Header Text'); ?></label></th>
                 <td>
-                    <input type="checkbox" name="tasty_header_text" value="true" id="tasty_header_text" <?php if ($tasty_settings->header_text) echo' checked="checked"'; ?> />
+                    <input type="checkbox" name="tasty_header_text" value="true" id="tasty_header_text" <?php if (!$tasty_settings->header_text) echo' checked="checked"'; ?> />
                     <span class="description"><?php _e('If you have an elaborate header image, you can disable the text overlay.') ?></span>
                 </td>
             </tr>
+            
+            <tr valign="top">
+                <th scope="row"><label for="tasty_header_search"><?php _e('Disable Search in Header'); ?></label></th>
+                <td>
+                    <input type="checkbox" name="tasty_header_search" value="true" id="tasty_header_search" <?php if (!$tasty_settings->header_search) echo' checked="checked"'; ?> />
+                    <span class="description"><?php _e('Check this box you don\'t wan\'t the search box in the header of your site.') ?></span>
+                </td>
+            </tr>
+            
         </table>
 
         <h3><?php _e('SocialGrid') ?></h3>
@@ -240,7 +250,10 @@ function tasty_save_options(){
         $tasty_settings->custom_header_image = $_POST['tasty_custom_header_image'];
         
         // Header Text
-        $tasty_settings->header_text = (isset($_POST['tasty_header_text'])) ? true : false;
+        $tasty_settings->header_text = (isset($_POST['tasty_header_text'])) ? false : true;
+
+        // Disavble Search in Header
+        $tasty_settings->header_search = (isset($_POST['tasty_header_text'])) ? false : true;
         
         // Social Grid
         $tasty_settings->socialgrid_enabled = (isset($_POST['tasty_socialgrid_enable'])) ? true: false;

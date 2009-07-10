@@ -506,7 +506,6 @@ body {
 
     #sidebar ul.socialButtons {
         margin: 0;
-        
     }
     
         #sidebar ul.socialButtons:after {
@@ -611,7 +610,19 @@ body {
         #sidebar ul.socialButtons li.button.delicious a {
             background-image: url(img/social/delicious.png) !important;
         }
+    
+    #sidebar form#searchform {
         
+    }
+    
+        #sidebar form#searchform label {
+            display: none;
+        }
+        
+        #sidebar form#searchform input#s {
+            padding: 3px;
+            width: 150px;
+        }
 
 .debug {
     padding: 10px;

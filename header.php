@@ -40,10 +40,11 @@ $(document).ready(function(){
     <div id="wrapper">
         <div class="innerTop"></div>
         <div id="header">
-            <?php if ($tasty_settings->header_text): ?>
+            <?php if (!$tasty_settings->header_text): ?>
                 <h1><?php bloginfo('name'); ?></h1>
                 <h2><?php bloginfo('description'); ?></h2>
             <?php endif; ?>
+            <?php if (!$tasty_settings->header_search): ?>
             <div class="search">
                 <form action="." method="get">
                 <label class="span" for="searchInput">Search the site...</label>
@@ -51,6 +52,7 @@ $(document).ready(function(){
                 <input type="image" name="submit" src="<?php bloginfo('stylesheet_directory'); ?>/img/searchButton.png" id="submitSearch" />
                 </form>
             </div>
+            <?php endif; ?>
             <div class="headerOverlay"></div>
         </div>
             

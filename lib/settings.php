@@ -13,7 +13,8 @@ class Settings {
     function defaults() {
         $defaults->color = 'pink';
         $defaults->sidebar_alignment = 'right';
-        $defaults->header_text = true;
+        $defaults->header_text = false;
+        $defaults->header_search = false;
         $defaults->socialgrid_enabled = true;
         return $defaults;
     }
