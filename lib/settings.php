@@ -7,13 +7,14 @@
 class Settings {
     function __construct() {
         $this->get_settings();
+        // update_option('tasty_settings', NULL);
     }
     
     function defaults() {
         $defaults->color = 'pink';
         $defaults->sidebar_alignment = 'right';
-        $defaults->header_text = false;
-        $defaults->header_search = false;
+        $defaults->disable_header_text = false;
+        $defaults->disable_header_search = false;
         $defaults->socialgrid_enabled = true;
         return $defaults;
     }
