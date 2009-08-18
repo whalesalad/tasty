@@ -251,8 +251,8 @@ function tasty_save_options(){
         // Header Text
         $tasty_settings->disable_header_text = (isset($_POST['tasty_header_text'])) ? true : false;
 
-        // Disavble Search in Header
-        $tasty_settings->disable_header_search = (isset($_POST['tasty_header_text'])) ? true : false;
+        // Disable Search in Header
+        $tasty_settings->disable_header_search = (isset($_POST['tasty_header_search'])) ? true : false;
         
         // Social Grid
         $tasty_settings->socialgrid_enabled = (isset($_POST['tasty_socialgrid_enable'])) ? true: false;
