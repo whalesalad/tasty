@@ -150,6 +150,10 @@ body {
     a:hover {
         text-decoration: none;
     }
+    
+    a img {
+        border: none;
+    }
 
 #footer {
     width: 800px;
