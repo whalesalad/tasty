@@ -1,0 +1,17 @@
+*** Tasty Changelog ***
+
+08/17/2009 - Version 1.2
+  * Fixed issues with image links having borders
+  * Fixed an issue where if you disabled the header text in the Tasty settings area, the search box would get disabled as well.
+  * Fixed an issue regarding jQuery having problems with other frameworks. Rewritten in a "framework independant" mode where things like Prototype will no longer interfere and break functionality (liek the SocialGrid)
+  * Fixed an issue where comment links were not working in the search and archive pages. Globalized the loop in /lib/template/loop.php
+  * Removed the PSD's from the theme download (so you can upload a .zip file directly to your WP install), they are now accessable from the readme. This also makes the download smaller!
+  * Special thanks to Michael Kaiser for finding and sharing most of these problems.
+
+07/10/2009 - Version 1.1
+  * Theme now works in sub-directories.
+  * Added admin option to disable search component inside of header.
+  * Minor code cleanup here and there, naturally.
+
+07/04/2009 - Version 1.0
+
