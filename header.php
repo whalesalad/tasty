@@ -24,22 +24,13 @@ include('functions.php'); ?>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/js/jquery.js" type="text/javascript"></script>
 <script src="<?php bloginfo('stylesheet_directory'); ?>/js/tasty.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-/* <![CDATA[ */
-$(document).ready(function(){
-    $('.headerOverlay').click(function() {
-        window.location = '<?php bloginfo('url'); ?>'; return false;
-    });
-});
-/* ]]> */
-</script>
-
 <?php wp_head(); ?>
 </head>
 <body <?php tasty_body_class(); ?>>
     <div id="wrapper">
         <div class="innerTop"></div>
         <div id="header">
+            <a id="blogHome" href="<?php bloginfo('url'); ?>">Home</a>
             <?php if (!$tasty_settings->disable_header_text): ?>
                 <h1><?php bloginfo('name'); ?></h1>
                 <h2><?php bloginfo('description'); ?></h2>
