@@ -5,7 +5,7 @@
         <?php endif; ?>
             <h2><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php tasty_title(); ?> <?php the_title_attribute(); ?>"><?php tasty_title(); ?></a></h2>
         <?php if ($post->post_type == "post"): ?>
-            <small>Posted at <?php the_time('g:i A') ?> &bull; <a href="#comments"><?php comments_number('No Comments', 'One Comment', '% Comments' );?></a><?php if ($user_ID) { ?> &bull; <?php edit_post_link('Edit Post'); ?><?php } ?></small>
+            <small>Posted at <?php the_time('g:i A') ?> &bull; <a href="<?php the_permalink() ?>#comments"><?php comments_number('No Comments', 'One Comment', '% Comments' );?></a><?php if ($user_ID) { ?> &bull; <?php edit_post_link('Edit Post'); ?><?php } ?></small>
         <?php endif; ?>
     </div>
     <div class="postContent">
