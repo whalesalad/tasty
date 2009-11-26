@@ -30,13 +30,13 @@ function tasty_activate_theme() {
     $email = urlencode($current_user->user_email);
     $domain = urlencode(get_bloginfo('url'));
     $server_address = urlencode($_SERVER['SERVER_ADDR']);
-    $theme_name = urlencode(get_current_theme());
-    $version = urlencode(TASTY_VERSION);
+    $theme_name = urlencode(WS_SLUG);
+    $version = urlencode(WS_VERSION);
     
     $post = "name=$name&username=$username&email=$email&domain=$domain&address=$server_address&theme_name=$theme_name&version=$version";
     
-    // $host       = 'activate.dev';
-    $host       = 'activate.whalesalad.com';
+    $host       = '127.0.0.1';
+    // $host       = 'activate.whalesalad.com';
     $gateway    = '/collect/';
     $useCURL    = in_array('curl', get_loaded_extensions());
     $whalePing  = "X-whale-ping: Tasty Activation";

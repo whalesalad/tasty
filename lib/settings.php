@@ -1,6 +1,6 @@
 <?php
 /**
- * @package Word-Press
+ * @package WordPress
  * @subpackage Tasty
  */
 

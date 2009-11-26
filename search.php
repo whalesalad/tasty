@@ -5,7 +5,7 @@
  */
 
 tasty_header(); ?>
-    <div id="content" class="narrowcolumn">
+<div id="content" class="narrowcolumn">
     <?php if (have_posts()): ?>
         <div class="notice">Search Results for "<?php echo $_GET["s"]; ?>":</div>
         <?php while (have_posts()): the_post(); ?>

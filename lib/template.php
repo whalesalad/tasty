@@ -56,7 +56,7 @@ function tasty_title(){
     $title = get_the_title();
 
     // Shorten
-    if (strlen($title) > $length = 35) {
+    if (strlen($title) > $length) {
         $suffix = '...';
         $short_desc = trim(str_replace(array("\r","\n", "\t"), ' ', strip_tags($title)));
         $desc = trim(substr($short_desc, 0, $length));

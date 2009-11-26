@@ -4,7 +4,9 @@
  * @subpackage Tasty
  */
 
-define('TASTY_VERSION', 1.2);
+define('WS_VERSION', 1.3);
+define('WS_THEME', 'Tasty');
+define('WS_SLUG', 'tasty');
 
 define('TASTY_LIB', TEMPLATEPATH.'/lib');
 define('TASTY_STATIC', get_bloginfo('template_url').'/lib/static');
