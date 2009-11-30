@@ -1,4 +1,10 @@
-*** Tasty Changelog ***
+*** Tasty Changelog - http://whalesalad.com/tasty ***
+
+11/29/2009 - Version 1.3
+  * Improved pagination, borrowed from Elixir 2.0
+  * Improved (experimental) the titles of blog post headers, shrinks text based upon length of title
+  * Minor SocialGrid tweaks to animation and links now open in a new window (thanks @marrsattacks)
+  * Fixed the broken comments link that has plagued this release for a while =(
 
 08/17/2009 - Version 1.2
   * Fixed issues with image links having borders
