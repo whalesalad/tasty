@@ -11,7 +11,7 @@ tasty_header(); ?>
         <?php while (have_posts()): the_post(); ?>
             <?php include(TASTY_LIB.'/template/loop.php'); ?>
         <?php endwhile; ?>
-        <?php tasty_pagination(); ?>
+        <?php ws_pagination(); ?>
     <?php else: ?>
         <div class="page" id="postNotFound">
             <div class="postMeta">

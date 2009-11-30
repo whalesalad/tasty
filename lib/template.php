@@ -24,7 +24,6 @@ function tasty_styles(){
         $style .= '</style>'."\n";
         echo $style;
     }
-    
 }
 
 // Returns sidebar alignment
@@ -52,24 +51,41 @@ function tasty_body_class(){
     echo 'class="'.join(' ', $classes).'"';
 }
 
-function tasty_title(){
+function tasty_title($length = 35){
     $title = get_the_title();
 
-    // Shorten
     if (strlen($title) > $length) {
         $suffix = '...';
-        $short_desc = trim(str_replace(array("\r","\n", "\t"), ' ', strip_tags($title)));
-        $desc = trim(substr($short_desc, 0, $length));
-        $lastchar = substr($desc, -1, 1);
+        $short_title = trim(str_replace(array("\r","\n", "\t"), ' ', strip_tags($title)));
+        $title = trim(substr($short_title, 0, $length));
+        $lastchar = substr($title, -1, 1);
         if ($lastchar == '.' || $lastchar == '!' || $lastchar == '?') $suffix='';
-        $desc .= $suffix;
-        $title = $desc;
+        $title .= $suffix;
     }
 
     if (strlen($title) == 0)
         $title = "Untitled";
     
     echo $title;
+}
+
+function tasty_variable_title(){
+    $title = get_the_title();
+    $length = strlen($title);
+    
+    $size = 'xlarge';
+
+    if ($length > 65) {
+        $size = 'smallest';
+    } else if ($length > 55) {
+        $size = 'small';
+    } else if ($length > 45) {
+        $size = 'medium';
+    } else if ($length > 35) {
+        $size = 'large';
+    }
+    
+    echo $size;
 }
 
 if (function_exists('register_sidebar')){
@@ -103,6 +119,39 @@ function tasty_render_comment($comment, $args, $depth){
             <?php edit_comment_link('EDIT', ' &bull; ', ''); ?> 
         </div>
 <?php } 
+
+function ws_next_posts_link($label = 'Next Page &raquo;', $max_page = 0) {
+    global $paged, $wp_query;
+
+    if (!$max_page) $max_page = $wp_query->max_num_pages;
+
+    if (!$paged) $paged = 1;
+
+    $nextpage = intval($paged) + 1;
+
+    if (!is_single() && (empty($paged) || $nextpage <= $max_page)) {
+        $attr = apply_filters( 'next_posts_link_attributes', '' );
+        return '<a class="left" href="'.next_posts($max_page, false)."\" $attr>".preg_replace('/&([^#])(?![a-z]{1,8};)/', '&#038;$1', $label) .'</a>';
+    }
+}
+
+function ws_previous_posts_link($label = '&laquo; Previous Page') {
+    global $paged;
+
+    if (!is_single() && $paged > 1) {
+        $attr = apply_filters('previous_posts_link_attributes', '');
+        return '<a class="right" href="'.previous_posts(false)."\" $attr>".preg_replace('/&([^#])(?![a-z]{1,8};)/', '&#038;$1', $label).'</a>';
+    }
+}
+
+function ws_pagination() {
+    if (ws_next_posts_link() OR ws_previous_posts_link()) {
+        echo '<div class="pagination">';
+        echo ws_next_posts_link('&laquo; Older Posts', '0');
+        echo ws_previous_posts_link('Newer Posts &raquo;', '0');
+        echo '</div>';
+    }
+}
 
 // SocialGrid class. Instantiated in sidebar, renders grid of Social Media buttons.
 class SocialGrid {
@@ -150,7 +199,7 @@ class SocialGrid {
         if (!isset($button["url"]))
             return;
             
-        echo '<li class="button '.$class.'"><a href="'.$button["url"].'">'.$button["text"].'</a></li>';
+        echo '<li class="button '.$class.'"><a href="'.$button["url"].'" target="_blank">'.$button["text"].'</a></li>';
     }
     
     function render_buttons($buttons) {
@@ -210,15 +259,7 @@ class SocialGrid {
         global $tasty_settings;
         if ($tasty_settings->delicious_url)
             return 'http://delicious.com/'.$tasty_settings->delicious_url;
-    }
-    
-}
-
-function tasty_pagination() {
-    echo '<div class="pagination">';
-    echo "\t".'<span class="left">'.get_next_posts_link('&larr; Older Posts').'</span>';
-    echo "\t".'<span class="right">'.get_previous_posts_link('Newer Posts &rarr;').'</span>';
-    echo '</div>';
+    }  
 }
 
 ?>

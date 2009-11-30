@@ -2,7 +2,7 @@
 Theme Name: Tasty
 Theme URI: http://whalesalad.com/tasty/
 Description: A delicious and refreshing theme for Wordpress.
-Version: 1.2
+Version: 1.3
 Author: Michael Whalen
 Author URI: http://whalesalad.com/
 Tags: fixed width, two columns, widgets
@@ -215,6 +215,7 @@ body {
 
 #content .post {
     margin-bottom: 20px;
+    clear: both;
 }
 
     #content .post .postMeta,
@@ -223,6 +224,7 @@ body {
         height: 50px;
         overflow: hidden;
         margin-bottom: 15px;
+        padding-right: 10px;
     }
     
         #content .post .postMeta .date {
@@ -260,6 +262,27 @@ body {
             line-height: 1.7em;
             text-shadow: 0 1px 0 #000;
         }
+        
+            #content .postMeta h2.large {
+                font-size: 1.5em;
+                line-height: 2.05em;
+            }
+            
+            #content .postMeta h2.medium {
+                font-size: 1.3em;
+                line-height: 2.3em;
+            }
+            
+            #content .postMeta h2.small {
+                font-size: 1.1em;
+                line-height: 2.8em;
+            }
+            
+            #content .postMeta h2.smallest {
+                font-size: 1.1em;
+                line-height: 1.1em;
+                padding: 3px 0 4px 0;
+            }
         
             #content .page .postMeta h2 {
                 font-size: 2.2em;
@@ -302,11 +325,11 @@ body {
         color: #333;
     }
     
-        #content .pagination span.left {
+        #content .pagination .left {
             float: left;
         }
         
-        #content .pagination span.right {
+        #content .pagination .right {
             float: right;
         }
         
@@ -562,7 +585,7 @@ body {
                 line-height: 30px;
                 color: #FFF;
                 font-weight: bold;
-                height: 48px;
+                height: 35px;
                 text-shadow: 0 1px 1px #000;
             }
             

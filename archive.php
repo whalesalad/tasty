@@ -30,7 +30,7 @@ tasty_header(); ?>
         <?php include(TASTY_LIB.'/template/loop.php'); ?>
     <?php endwhile; ?>
 
-    <?php tasty_pagination(); ?>
+    <?php ws_pagination(); ?>
     
     <?php else:
         if (is_category()) {

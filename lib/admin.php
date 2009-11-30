@@ -157,7 +157,7 @@ function tasty_options_admin(){
                 <th scope="row"><label for="tasty_custom_header_image"><?php _e('Custom Header Image'); ?></label></th>
                 <td>
                     <input type="text" name="tasty_custom_header_image" value="<?php if ($tasty_settings->custom_header_image) echo $tasty_settings->custom_header_image; ?>" id="tasty_rss_url" class="regular-text" /><br/>
-                    <span class="description"><?php _e('The header is 760px wide by 170px high. Enter the URL of an image into this box to use it as your header image. Leave this blank to use the default header image.') ?></span>
+                    <span class="description"><?php _e('The header is 760px wide by 170px high. Enter the URL of an image into this box to use it as your<br/> header image. Leave this blank to use the default header image.') ?></span>
                 </td>
             </tr>
             
@@ -165,7 +165,8 @@ function tasty_options_admin(){
                 <th scope="row"><label for="tasty_header_text"><?php _e('Disable Header Text'); ?></label></th>
                 <td>
                     <input type="checkbox" name="tasty_header_text" value="true" id="tasty_header_text" <?php if ($tasty_settings->disable_header_text) echo' checked="checked"'; ?> />
-                    <span class="description"><?php _e('If you have an elaborate header image, you can disable the text overlay.') ?></span>
+                    <span class="description"><?php _e('Check this box if you <strong>don\'t wan\'t</strong> any text to appear in your header.') ?></span>
+                    <p>With certain custom header images, the text overlay is distracting. That is why this option exists.</p>
                 </td>
             </tr>
             
@@ -173,14 +174,17 @@ function tasty_options_admin(){
                 <th scope="row"><label for="tasty_header_search"><?php _e('Disable Search in Header'); ?></label></th>
                 <td>
                     <input type="checkbox" name="tasty_header_search" value="true" id="tasty_header_search" <?php if ($tasty_settings->disable_header_search) echo' checked="checked"'; ?> />
-                    <span class="description"><?php _e('Check this box you don\'t wan\'t the search box in the header of your site.') ?></span>
+                    <span class="description"><?php _e('Check this box you <strong>don\'t wan\'t</strong> the search box in the header of your site.') ?></span>
+                    <p>If you would rather have the search in the sidebar of your blog, add it as a <em>Widget</em>.</p>
                 </td>
             </tr>
             
         </table>
 
         <h3><?php _e('SocialGrid') ?></h3>
-        <p>The SocialGrid is a simple grid of social network links at the top of your sidebar. If you enter a username into any of the boxes below, that link will appear in your sidebar. Leave it empty to exclude it.</p>
+        <p>The SocialGrid is a simple grid of links to your various social profiles at the top of your sidebar. <br/>If you enter a username into any of the boxes below, that link will appear in your sidebar. Leave a box empty to exclude it.</p>
+        
+        <p><strong>It is important to note that a new version of SocialGrid is being developed.</strong><br/> The latest version of SocialGrid (SG) is in the process of being integrated into Tasty, but is still considered experimental.<br/> You can install the standalone version of SocialGrid yourself to take advantage of the new features. <a href="http://whalesalad.com/sg-tasty" target="_blank">Learn More &rarr;</a></p>
         
         <table class="form-table">
             <tr valign="top">

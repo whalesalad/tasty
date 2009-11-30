@@ -10,7 +10,7 @@ tasty_header(); ?>
         <?php while (have_posts()): the_post(); ?>
             <?php include(TASTY_LIB.'/template/loop.php'); ?>
         <?php endwhile; ?>
-        <?php tasty_pagination(); ?>
+        <?php ws_pagination(); ?>
     <?php else: ?>
         <h2 class="center">Not Found</h2>
         <p class="center">Sorry, but you are looking for something that isn't here.</p>

@@ -22,7 +22,7 @@ jQuery(document).ready(function(jQuery){
             var tooltip = jQuery('<div/>').attr('class', 'tooltip').html(tooltipContent.join('')).appendTo(jQuery(this));
 
             tooltip.css('left', -(tooltip.width()/2)+25).bind('click', function(event) {
-                window.location = button.children('a').attr('href');
+                window.open(button.children('a').attr('href'));
             });
 
             button.hover(function() {
