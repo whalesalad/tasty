@@ -11,7 +11,7 @@ Tags: fixed width, two columns, widgets
 * { margin: 0; padding: 0; }
 
 body {
-    background: #333;
+    background: #000000;
     font: 62.5% "Helvetica Neue", Helvetica, Arial, sans-serif;
     padding: 15px 0 0 0;
 }
@@ -37,7 +37,7 @@ body {
     
     #wrapper #header {
         width: 760px;
-        height: 170px;
+        height: 288px;
         margin: 0 auto 20px auto;
         background-position: center center !important;
         position: relative;
@@ -58,8 +58,7 @@ body {
             position: absolute;
             display: block;
             width: 760px;
-            height: 170px;
-            background: url(img/headerOverlay.png) center center no-repeat;
+            height: 288px;
             top: 0;
             left: 0;
             z-index: 400;
