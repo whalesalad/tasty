@@ -35,8 +35,8 @@ function tasty_activate_theme() {
     
     $post = "name=$name&username=$username&email=$email&domain=$domain&address=$server_address&theme_name=$theme_name&version=$version";
     
-    $host       = '127.0.0.1';
-    // $host       = 'activate.whalesalad.com';
+    // $host       = '127.0.0.1';
+    $host       = 'activate.whalesalad.com';
     $gateway    = '/collect/';
     $useCURL    = in_array('curl', get_loaded_extensions());
     $whalePing  = "X-whale-ping: Tasty Activation";
