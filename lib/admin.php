@@ -160,7 +160,7 @@ function tasty_options_admin(){
             <tr valign="top">
                 <th scope="row"><label for="tasty_background_color"><?php _e('Custom Background Color'); ?></label></th>
                 <td class="color_wrapper">
-                    <input type="text" name="tasty_background_color" value="<?= $tasty_settings->background_color ?>" id="tasty_background_color" /><br/>
+                    <input type="text" name="tasty_background_color" value="<?= (isset($tasty_settings->background_color)) ? $tasty_settings->background_color : '#333333' ?>" id="tasty_background_color" /><br/>
                     <span class="description"><?php _e('The default background color for Tasty is #333333 (a dark grey), but you can change it however you\'d like!') ?></span>
                     <div id="tasty_background_color_picker"></div>
                 </td>
