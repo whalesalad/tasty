@@ -1,5 +1,10 @@
 *** Tasty Changelog - http://whalesalad.com/tasty ***
 
+3/16/2010 - Version 1.4
+  * Added a new feature, you can now choose your own background color using a slick color picker inside of the admin!
+  * Fixed an issue with the search box not working on pages other than the homepage.
+  * Added a PHP5 version check to prevent new users on PHP4 from feeling like dweebs when their settings don't save. Borrowed from SocialGrid 2.0.
+
 11/29/2009 - Version 1.3
   * Improved pagination, borrowed from Elixir 2.0
   * Improved (experimental) the titles of blog post headers, shrinks text based upon length of title
