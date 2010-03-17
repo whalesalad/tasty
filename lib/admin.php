@@ -17,6 +17,8 @@ function tasty_add_options_pages(){
 }
 
 function tasty_settings_head() {
+    wp_enqueue_style('tasty-farbtastic-stylesheet', TASTY_STATIC . '/farbtastic.css');
+    wp_enqueue_script('tasty-farbtastic-js', TASTY_STATIC . '/farbtastic.js');
     wp_enqueue_style('tasty-settings-stylesheet', TASTY_STATIC . '/admin.css');
     wp_enqueue_script('tasty-admin-js', TASTY_STATIC . '/admin.js');
 }
@@ -123,6 +125,8 @@ function tasty_color_dropdown(){
 
 function tasty_options_admin(){ 
     global $tasty_settings; ?>
+    <?php if (tasty_is_php5()): // IF PHP5, DO AS NORMAL ?>
+        
     <h2><?php _e('Tasty Theme Options', 'tasty'); ?></h2>
     
     <?php if ($_GET['saved']): ?>
@@ -152,6 +156,15 @@ function tasty_options_admin(){
                     </select>
                 </td>
             </tr>
+            
+            <tr valign="top">
+                <th scope="row"><label for="tasty_background_color"><?php _e('Custom Background Color'); ?></label></th>
+                <td class="color_wrapper">
+                    <input type="text" name="tasty_background_color" value="<?= $tasty_settings->background_color ?>" id="tasty_background_color" /><br/>
+                    <span class="description"><?php _e('The default background color for Tasty is #333333 (a dark grey), but you can change it however you\'d like!') ?></span>
+                    <div id="tasty_background_color_picker"></div>
+                </td>
+            </tr>            
 
             <tr valign="top">
                 <th scope="row"><label for="tasty_custom_header_image"><?php _e('Custom Header Image'); ?></label></th>
@@ -234,10 +247,37 @@ function tasty_options_admin(){
         </p>
         
     </form>
+    
+    <?php else: // IF PHP4, OR SOMETHING LESS THAN 5. PHP3? LULZ. 
+    
+    $pretty_php_version = explode('.', phpversion());
+    $pretty_php_version = $pretty_php_version[0].'.'.$pretty_php_version[1];
+    
+    ?>
+    
+    <h2>Oops, Tasty will not work correctly on this server.</h2>
+
+    <div id="updated" class="updated fade">
+    <p><strong>Currently your web server is running PHP <?php echo $pretty_php_version.' ('.phpversion().')'; ?> and it needs to be running at least version 5.2.</strong></p>
+    </div>
+
+    <p>Tasty was built for PHP5, which is a newer but stable and mature version of PHP. <br/> PHP5 has been around for a couple of years now, so there is no reason why your web server should be running PHP4.</p>
+    
+    <p><strong>There's good news, however,</strong> most webhosts let you choose the version of PHP that you would like to run on your site. <br/>Try looking around your hosting control panel or search google for something like "how to enable php5 on XYZ host".</p>
+    
+    <h4>Here is a small collection of links that might be useful for enabling PHP5 on your host (common hosts are listed here):<br/> Instructions for enabling PHP5 on: <a target="_blank" href="http://help.godaddy.com/topic/419/article/1083">GoDaddy</a>, <a href="http://faq.1and1.com/scripting_languages_supported/php/9.html">1&amp;1</a></h4>
+
+    <p>If you have any questions, comments, or concerns please feel free to <a href="http://whalesalad.com/contact" target="_blank">contact me via my contact form</a>.</p>
+    
+    <?php endif; ?>
+    
 <?php } 
 
 function tasty_save_options(){
     global $tasty_settings;
+    
+    # Load the color functions to use in changing the footer color and such
+    include 'color.php';
     
     if (!current_user_can('edit_themes'))
         wp_die(__('Sorry, you don\'t have sufficient admin privileges to modify theme settings.', 'tasty'));
@@ -251,6 +291,15 @@ function tasty_save_options(){
         
         // Header BG Image
         $tasty_settings->custom_header_image = $_POST['tasty_custom_header_image'];
+        
+        // Custom background color
+        $tasty_settings->background_color = (isset($_POST['tasty_background_color'])) ? $_POST['tasty_background_color'] : '#333333';
+        
+        if (isset($_POST['tasty_background_color'])) {
+            $hex_color = $_POST['tasty_background_color'];
+            $hsl_color = _color_rgb2hsl(_color_unpack($hex_color));
+            $tasty_settings->footer_color = (($hsl_color[2] > (0.5 * 255)) ? '#000' : '#FFF');
+        }
         
         // Header Text
         $tasty_settings->disable_header_text = (isset($_POST['tasty_header_text'])) ? true : false;
@@ -273,6 +322,15 @@ function tasty_save_options(){
     }
     
     wp_redirect(admin_url('themes.php?page=tasty-options&saved=true'));
+}
+
+////////////////////
+// CHECK FOR PHP5 //
+////////////////////
+function tasty_is_php5() {
+    $phpversion = explode('.', PHP_VERSION);
+    return ($phpversion[0] < 5) ? false : true;
+    // return false; // debug
 }
 
 ?>

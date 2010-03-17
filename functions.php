@@ -27,4 +27,5 @@ require_once(TASTY_LIB . '/template.php');
 if (is_admin())
     require_once(TASTY_LIB . '/admin.php');
 
+
 ?>

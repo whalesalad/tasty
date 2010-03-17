@@ -16,14 +16,18 @@ function tasty_styles(){
     echo '<link rel="stylesheet" href="'.get_bloginfo('stylesheet_directory').'/css/'.$tasty_color.'.css" />'."\n";
     
     // If custom header
+    $style = array();
+    $style[] = '<style type="text/css" media="screen">';
+    $style[] = 'body { background-color: '.$tasty_settings->background_color.' } ';
+    $style[] = '.innerTop { background-color: '.$tasty_settings->background_color.' } ';
+    $style[] = '#footer, #footer a { color: '.$tasty_settings->footer_color.' } ';
+
     if ($tasty_settings->custom_header_image) {
-        $style  = "\n".'<style type="text/css" media="screen">'."\n";
-        $style .= "#wrapper #header {\n";
-        $style .= "\t".'background-image: url('. $tasty_settings->custom_header_image .') !important;'."\n";
-        $style .= "}\n";
-        $style .= '</style>'."\n";
-        echo $style;
+        $style[] = '#wrapper #header { background-image: url('. $tasty_settings->custom_header_image .') !important; }';
     }
+    
+    $style[] = '</style>';
+    echo implode($style, "\n");
 }
 
 // Returns sidebar alignment

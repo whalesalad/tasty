@@ -1,0 +1,13 @@
+td.color_wrapper {
+    position: relative;
+}
+
+#tasty_background_color_picker {
+    display: none;
+    border: 1px solid #CCC;
+    background: #FFF;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    position: absolute;
+}

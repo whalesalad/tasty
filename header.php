@@ -27,8 +27,8 @@ include('functions.php'); ?>
 <?php wp_head(); ?>
 </head>
 <body <?php tasty_body_class(); ?>>
+    <div class="topCap"></div>
     <div id="wrapper">
-        <div class="innerTop"></div>
         <div id="header">
             <a id="blogHome" href="<?php bloginfo('url'); ?>">Home</a>
             <?php if (!$tasty_settings->disable_header_text): ?>
@@ -37,10 +37,10 @@ include('functions.php'); ?>
             <?php endif; ?>
             <?php if (!$tasty_settings->disable_header_search): ?>
             <div class="search">
-                <form action="." method="get">
-                <label class="span" for="searchInput">Search the site...</label>
-                <input type="text" name="s" value="<?php echo $_GET["s"]; ?>" id="searchInput" />
-                <input type="image" name="submit" src="<?php bloginfo('stylesheet_directory'); ?>/img/searchButton.png" id="submitSearch" />
+                <form action="<?php bloginfo('url'); ?>" method="get">
+                    <label class="span" for="searchInput">Search the site...</label>
+                    <input type="text" name="s" value="<?php echo $_GET["s"]; ?>" id="searchInput" />
+                    <input type="image" name="submit" src="<?php bloginfo('stylesheet_directory'); ?>/img/searchButton.png" id="submitSearch" />
                 </form>
             </div>
             <?php endif; ?>

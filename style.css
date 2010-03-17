@@ -21,17 +21,26 @@ body {
         margin: 0 auto;
         background: url(img/bg.png) top center repeat-y;
     }
+    
+    #wrapper:after {
+        content: ".";
+        visibility: hidden;
+        height: 0;
+        display: block;
+        clear: both;
+    }
 
-    #wrapper .innerTop,
-    #wrapper .innerBottom {
-        width: 820px;
-        height: 30px;
+    .topCap,
+    .bottomCap {
+        width: 808px;
+        height: 24px;
         display: block;
         background: url(img/bg_top.png) top center no-repeat;
+        margin: 0 auto;
     }
     
-    #wrapper .innerBottom {
-        background: #333 url(img/bg_bottom.png) top center no-repeat;
+    .bottomCap {
+        background: url(img/bg_bottom.png) top center no-repeat;
         clear: both;
     }
     
@@ -173,6 +182,7 @@ body {
     text-align: center;
     font-size: 1.2em;
     color: #555;
+    opacity: 0.7;
 }
 
     #footer a {

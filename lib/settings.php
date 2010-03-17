@@ -16,6 +16,8 @@ class Settings {
         $defaults->disable_header_text = false;
         $defaults->disable_header_search = false;
         $defaults->socialgrid_enabled = true;
+        $defaults->background_color = '#333333';
+        $defaults->footer_color = '#FFF';
         return $defaults;
     }
     
