@@ -4,7 +4,7 @@
  * @subpackage Tasty
  */
 
-define('WS_VERSION', 1.4);
+define('WS_VERSION', 1.41);
 define('WS_THEME', 'Tasty');
 define('WS_SLUG', 'tasty');
 

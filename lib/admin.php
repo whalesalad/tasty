@@ -11,8 +11,9 @@ function tasty_add_options_pages(){
     $tasty_admin_page = add_theme_page(__('Tasty Theme Options', 'tasty'), __('Tasty Theme Options', 'tasty'), 'edit_themes', 'tasty-options', 'tasty_options_admin');
     add_action("admin_print_styles-$tasty_admin_page", 'tasty_settings_head_css');
     add_action("admin_print_scripts-$tasty_admin_page", 'tasty_settings_head_js');
-    add_action('admin_post_tasty_save', 'tasty_save_options');
 }
+
+add_action('admin_post_tasty_save', 'tasty_save_options');
 
 function tasty_settings_head_js() {
     wp_enqueue_script('tasty-farbtastic-js', TASTY_STATIC . '/farbtastic.js');
