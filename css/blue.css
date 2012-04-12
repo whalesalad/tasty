@@ -8,7 +8,7 @@
 
 #content p a {
     color: #0D79CB;
-    border-bottom: 1px dotted #0D79CB;
+    border-bottom-color: #0D79CB;
     padding: 0 1px;
 }
 

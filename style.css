@@ -176,13 +176,29 @@ body {
         border: none;
     }
 
+    /* Formatting */
+
+    #content .postContent h1,
+    #content .postContent h2,
+    #content .postContent h3,
+    #content .postContent h4,
+    #content .postContent h5,
+    #content .postContent h6 {
+        line-height: 2;
+    }
+
+    /*#content .postContent*/
+
+    /*#content .postContent*/
+
 #footer {
     width: 800px;
     margin: 15px auto 0 auto;
     text-align: center;
     font-size: 1.2em;
     color: #555;
-    opacity: 0.7;
+    opacity: 0.8;
+    text-shadow: 0 1px 1px #000;
 }
 
     #footer a {
@@ -191,6 +207,10 @@ body {
 
     #footer .amp {
         font: italic 120% "Baskerville", "Goudy Old Style", "Palatino", "Book Antiqua", serif;
+    }
+
+    #footer p {
+        line-height: 1.8;
     }
 
 /* /// Content/Post Style */
@@ -347,7 +367,8 @@ body {
             color: #333;
         }
     
-    #content .postContent {
+    #content .postContent,
+    #content .postComments p.nocomments  {
         font: 1.2em/2em "Verdana", "Tahoma", sans-serif;
     }
     
@@ -381,6 +402,10 @@ body {
         color: #777;
     }
     
+    #content .postComments {
+        /**/
+    }
+
     #content .commentsMeta {
         color: #444;
         background: url(img/commentHeaderBg.png) 0 0 no-repeat;

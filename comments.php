@@ -16,18 +16,15 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'comments.php' == basename($_SERVER['
     <p class="nocomments">This post is password protected. Enter the password to view comments.</p>
 <?php return; } ?>
 
-<?php if (have_comments()) : ?>
+<?php if (have_comments()): ?>
     <ol class="postComments">
         <?php wp_list_comments('type=comment&callback=tasty_render_comment'); ?>
     </ol>
-<?php else : // this is displayed if there are no comments so far ?>
-    <?php if ('open' == $post->comment_status) : ?>
-        <!-- If comments are open, but there are no comments. -->
-
-     <?php else : // comments are closed ?>
-        <!-- If comments are closed. -->
+<?php else: // this is displayed if there are no comments so far ?>
+    <?php if ($post->comment_status == 'open'): ?>
+        <p class="nocomments">There haven't been any comments yet. Be the first!</p>
+     <?php else: // comments are closed ?>
         <p class="nocomments">Comments are closed.</p>
-
     <?php endif; ?>
 <?php endif; ?>
 

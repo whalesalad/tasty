@@ -8,7 +8,7 @@
 add_action('admin_menu', 'tasty_add_options_pages');
 
 function tasty_add_options_pages(){
-    $tasty_admin_page = add_theme_page(__('Tasty Theme Options', 'tasty'), __('Tasty Theme Options', 'tasty'), 'edit_themes', 'tasty-options', 'tasty_options_admin');
+    $tasty_admin_page = add_theme_page(__('Tasty Options', 'tasty'), __('Tasty Options', 'tasty'), 'edit_themes', 'tasty-options', 'tasty_options_admin');
     add_action("admin_print_styles-$tasty_admin_page", 'tasty_settings_head_css');
     add_action("admin_print_scripts-$tasty_admin_page", 'tasty_settings_head_js');
 }
@@ -26,7 +26,7 @@ function tasty_settings_head_css() {
 }
 
 
-if ($_GET['activated']) {
+if (isset($_GET['activated'])) {
     tasty_activate_theme();
 }
 
@@ -134,15 +134,15 @@ function tasty_options_admin(){
     global $tasty_settings; ?>
     <?php if (tasty_is_php5()): // IF PHP5, DO AS NORMAL ?>
         
-    <h2><?php _e('Tasty Theme Options', 'tasty'); ?></h2>
+    <h2><?php _e('Tasty Options', 'tasty'); ?></h2>
     
-    <?php if ($_GET['saved']): ?>
+    <?php if (isset($_GET['saved'])): ?>
     <div id="updated" class="updated fade">
         <p><?php echo __('Theme options saved!', 'tasty').' <a href="'.get_bloginfo('url').'/">'.__('View your website &rarr;', 'tasty').'</a>'; ?></p>
     </div>
     <?php endif; ?>
     
-    <?php if ($_GET['active']): ?>
+    <?php if (isset($_GET['active'])): ?>
     <div id="updated" class="updated fade">
         <p><?php echo __('You\'ve successfully activated the Tasty theme! Feel free to tinker with the settings below or ', 'tasty').' <a href="'.get_bloginfo('url').'/">'.__('view your website &rarr;', 'tasty').'</a>'; ?></p>
     </div>
