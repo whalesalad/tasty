@@ -41,7 +41,7 @@ global $tasty_settings;
             <div class="search">
                 <form action="<?php bloginfo('url'); ?>" method="get">
                     <label class="span" for="searchInput">Search the site...</label>
-                    <input type="text" name="s" value="<?php echo $_GET["s"]; ?>" id="searchInput" />
+                    <input type="text" name="s" value="<?php if (isset($_GET["s"])) echo $_GET["s"]; ?>" id="searchInput" />
                     <input type="image" name="submit" src="<?php bloginfo('stylesheet_directory'); ?>/img/searchButton.png" id="submitSearch" />
                 </form>
             </div>

@@ -109,7 +109,7 @@ function tasty_color_dropdown(){
     
     $colors = array(
         "pink" => "Hot Pink",
-        "green" => "Lani Green",
+        "green" => "Neon Green",
         "orange" => "Agent Orange",
         "purple" => "Twilight Purple",
         "blue" => "Frost Blue"
@@ -167,7 +167,7 @@ function tasty_options_admin(){
             <tr valign="top">
                 <th scope="row"><label for="tasty_background_color"><?php _e('Custom Background Color'); ?></label></th>
                 <td class="color_wrapper">
-                    <input type="text" name="tasty_background_color" value="<?= (isset($tasty_settings->background_color)) ? $tasty_settings->background_color : '#333333' ?>" id="tasty_background_color" /><br/>
+                    <input type="text" name="tasty_background_color" value="<?php echo (isset($tasty_settings->background_color)) ? $tasty_settings->background_color : '#333333' ?>" id="tasty_background_color" /><br/>
                     <span class="description"><?php _e('The default background color for Tasty is #333333 (a dark grey), but you can change it however you\'d like!') ?></span>
                     <div id="tasty_background_color_picker"></div>
                 </td>
@@ -176,7 +176,7 @@ function tasty_options_admin(){
             <tr valign="top">
                 <th scope="row"><label for="tasty_custom_header_image"><?php _e('Custom Header Image'); ?></label></th>
                 <td>
-                    <input type="text" name="tasty_custom_header_image" value="<?php if ($tasty_settings->custom_header_image) echo $tasty_settings->custom_header_image; ?>" id="tasty_rss_url" class="regular-text" /><br/>
+                    <input type="text" name="tasty_custom_header_image" value="<?php if (!empty($tasty_settings->custom_header_image)) echo $tasty_settings->custom_header_image; ?>" id="tasty_rss_url" class="regular-text" /><br/>
                     <span class="description"><?php _e('The header is 760px wide by 170px high. Enter the URL of an image into this box to use it as your<br/> header image. Leave this blank to use the default header image.') ?></span>
                 </td>
             </tr>
@@ -204,7 +204,7 @@ function tasty_options_admin(){
         <h3><?php _e('SocialGrid') ?></h3>
         <p>The SocialGrid is a simple grid of links to your various social profiles at the top of your sidebar. <br/>If you enter a username into any of the boxes below, that link will appear in your sidebar. Leave a box empty to exclude it.</p>
         
-        <p><strong>It is important to note that a new version of SocialGrid is being developed.</strong><br/> The latest version of SocialGrid (SG) is in the process of being integrated into Tasty, but is still considered experimental.<br/> You can install the standalone version of SocialGrid yourself to take advantage of the new features. <a href="http://whalesalad.com/sg-tasty" target="_blank">Learn More &rarr;</a></p>
+        <p><strong>It is important to note that a new version of SocialGrid is being developed.</strong><br/> The latest version of SocialGrid (SG) is in the process of being integrated into Tasty, but is still considered experimental.<br/> You can install the standalone version of SocialGrid yourself to take advantage of the new features. <a href="http://github.com/whalesalad/socialgrid" target="_blank">Learn More &rarr;</a></p>
         
         <table class="form-table">
             <tr valign="top">
@@ -214,37 +214,37 @@ function tasty_options_admin(){
 
             <tr valign="top">
                 <th scope="row"><label for="tasty_rss_url"><?php _e('FeedBurner Username'); ?></label></th>
-                <td><input type="text" name="tasty_rss_url" value="<?php if ($tasty_settings->rss_url) echo $tasty_settings->rss_url; ?>" id="tasty_rss_url" class="regular-text" /></td>
+                <td><input type="text" name="tasty_rss_url" value="<?php if (!empty($tasty_settings->rss_url)) echo $tasty_settings->rss_url; ?>" id="tasty_rss_url" class="regular-text" /></td>
             </tr>
             
             <tr valign="top">
                 <th scope="row"><label for="tasty_youtube_url"><?php _e('YouTube Username'); ?></label></th>
-                <td><input type="text" name="tasty_youtube_url" value="<?php if ($tasty_settings->youtube_url) echo $tasty_settings->youtube_url; ?>" id="tasty_youtube_url" class="regular-text" /></td>
+                <td><input type="text" name="tasty_youtube_url" value="<?php if (!empty($tasty_settings->youtube_url)) echo $tasty_settings->youtube_url; ?>" id="tasty_youtube_url" class="regular-text" /></td>
             </tr>
             
             <tr valign="top">
                 <th scope="row"><label for="tasty_twitter_url"><?php _e('Twitter Username'); ?></label></th>
-                <td><input type="text" name="tasty_twitter_url" value="<?php if ($tasty_settings->twitter_url) echo $tasty_settings->twitter_url; ?>" id="tasty_twitter_url" class="regular-text" /></td>
+                <td><input type="text" name="tasty_twitter_url" value="<?php if (!empty($tasty_settings->twitter_url)) echo $tasty_settings->twitter_url; ?>" id="tasty_twitter_url" class="regular-text" /></td>
             </tr>
             
             <tr valign="top">
                 <th scope="row"><label for="tasty_facebook_url"><?php _e('Facebook Vanity Name'); ?></label></th>
-                <td><input type="text" name="tasty_facebook_url" value="<?php if ($tasty_settings->facebook_url) echo $tasty_settings->facebook_url; ?>" id="tasty_facebook_url" class="regular-text" /></td>
+                <td><input type="text" name="tasty_facebook_url" value="<?php if (!empty($tasty_settings->facebook_url)) echo $tasty_settings->facebook_url; ?>" id="tasty_facebook_url" class="regular-text" /></td>
             </tr>
             
             <tr valign="top">
                 <th scope="row"><label for="tasty_myspace_url"><?php _e('Myspace Username'); ?></label></th>
-                <td><input type="text" name="tasty_myspace_url" value="<?php if ($tasty_settings->myspace_url) echo $tasty_settings->myspace_url; ?>" id="tasty_myspace_url" class="regular-text" /></td>
+                <td><input type="text" name="tasty_myspace_url" value="<?php if (!empty($tasty_settings->myspace_url)) echo $tasty_settings->myspace_url; ?>" id="tasty_myspace_url" class="regular-text" /></td>
             </tr>
             
             <tr valign="top">
                 <th scope="row"><label for="tasty_flickr_url"><?php _e('Flickr Username'); ?></label></th>
-                <td><input type="text" name="tasty_flickr_url" value="<?php if ($tasty_settings->flickr_url) echo $tasty_settings->flickr_url; ?>" id="tasty_flickr_url" class="regular-text" /></td>
+                <td><input type="text" name="tasty_flickr_url" value="<?php if (!empty($tasty_settings->flickr_url)) echo $tasty_settings->flickr_url; ?>" id="tasty_flickr_url" class="regular-text" /></td>
             </tr>
             
             <tr valign="top">
                 <th scope="row"><label for="tasty_delicious_url"><?php _e('Delicious Username'); ?></label></th>
-                <td><input type="text" name="tasty_delicious_url" value="<?php if ($tasty_settings->delicious_url) echo $tasty_settings->delicious_url; ?>" id="tasty_delicious_url" class="regular-text" /></td>
+                <td><input type="text" name="tasty_delicious_url" value="<?php if (!empty($tasty_settings->delicious_url)) echo $tasty_settings->delicious_url; ?>" id="tasty_delicious_url" class="regular-text" /></td>
             </tr>
             
         </table>
